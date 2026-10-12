@@ -1,0 +1,1258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js')</script>
+<title>Estrella Immunopharma, Inc. (Nasdaq: ESLA) | Investor Relations Concept</title>
+<meta name="description" content="An independent design concept for the Estrella Immunopharma (Nasdaq: ESLA) investor relations page. Not affiliated with Estrella Immunopharma, Inc.; the official IR site is https://www.estrellabio.com/investors.">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Montserrat:ital,wght@0,300..700;1,400&amp;family=Syne:wght@400..800&amp;display=swap" rel="stylesheet">
+<style>
+/* mc:tokens */
+:root{
+  /* palette.mjs --brand "#41e0f3,deep=#00182b" --strategy restrained  (restrained)
+     accent   #41e0f3 oklch(0.834 0.129 206.9)   real: the cyan star and orbit of the logo (logo raster #10d4ee, favicon #11d8f0)
+     deep     #00182b oklch(0.201 0.049 244)     real: the site's deep navy (also #01111f)
+     measured: white on --accent-ink 6.88:1, --accent-ink on --paper 6.69:1, --text-mid on --tint 5.67:1 */
+  --H: 206.9; --Hn: 244;
+  --accent:        oklch(0.834 0.129 206.9); /* bright: FILLS and strokes on light stock; text only on dark (accent on deep 10.97:1) */
+  --accent-lo:     oklch(0.834 0.129 206.9 / 0.14);
+  --accent-lt:     oklch(0.86 0.103 206.9); /* bright accent ON dark surfaces */
+  --accent-ink:    oklch(0.46 0.078 206.9); /* TEXT, links, primary-button background */
+  --accent-ink-d:  oklch(0.40 0.068 206.9); /* hover */
+  --ink:           oklch(0.26 0.019 244); /* headings */
+  --deep:          oklch(0.201 0.050 244); /* the real navy #00182b: hero, nav, permanently dark band */
+  --deep-2:        oklch(0.150 0.038 244); /* gravest band (disclosures) and footer: darker than the hero, same hue, no added chroma */
+  --paper:         oklch(0.99 0.004 244);
+  --card:          oklch(0.996 0.002 244);
+  --tint:          oklch(0.965 0.020 206.9); /* .sec-tint band, concept note, card interiors */
+  --tint-2:        oklch(0.91 0.035 206.9); /* borders, ghost outlines, the darker of two light bands */
+  --text:          oklch(0.31 0.019 244);
+  --text-mid:      oklch(0.49 0.019 244);
+  --line:          oklch(0.30 0.010 244 / 0.13);
+  --line-d:        oklch(0.98 0.019 206.9 / 0.14);
+  /* surface-slot defaults (foundation surface block); retuned in surface.css */
+  --sheet-edge:    oklch(0.40 0.068 206.9 / 0.26);
+  --blind:         oklch(1.00 0.000 0 / 0.5);
+  --blind-k:       oklch(1.00 0.000 0 / 0.85);
+  --sheet-neg:     oklch(0.98 0.019 206.9 / 0.05);
+  /* Estrella: the company's own faces. Syne is the extended display face of its site headings (not on the reflex list for that reason); Montserrat is its body face.
+     Syne's numerals are old-style (a zero reads as a lowercase o), so every figure on the page is set in Montserrat or the mono, never in Syne. */
+  --serif:         'Syne', 'Montserrat', system-ui, sans-serif;
+  --sans:          'Montserrat', system-ui, sans-serif;
+  --mono:          'DM Mono', ui-monospace, monospace;
+  --wrap: 1140px; --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+/* mc:substrate 9576b9be1505 */
+/* mediaconsole substrate: inlined by scripts/scaffold.mjs, identical on every page. Never edit or retype it;
+   override in page/layer.css or page/surface.css (both load after it). Band: all. Hue-parametric: colours are
+   tokens or oklch(... var(--Hn)). Integrity: opaque nav, content visible without JS, print and forced-colors safe. */
+:where(:root){--wrap:1140px;--ease:cubic-bezier(0.22, 1, 0.36, 1)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;scroll-padding-top:88px}
+body{font-family:var(--sans);color:var(--text);background:var(--paper);font-size:16px;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none} img,svg{display:block;max-width:100%} button{font:inherit;cursor:pointer}
+::selection{background:var(--accent-lt);color:var(--deep)}
+:focus-visible{outline:2px solid var(--accent-ink);outline-offset:3px;border-radius:2px}
+.sec-dark :focus-visible,.snapshot :focus-visible,footer :focus-visible{outline-color:var(--accent-lt)}
+.wrap{width:min(var(--wrap),100% - 44px);margin-inline:auto}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip-link{position:absolute;left:12px;top:-60px;z-index:200;background:var(--deep);color:#fff;padding:10px 16px;border-radius:6px;font-size:.85rem;transition:top .2s var(--ease)}
+.skip-link:focus{top:12px}
+.concept-note{background:var(--tint);color:var(--accent-ink-d);font-size:.78rem;text-align:center;padding:8px 16px;position:relative;z-index:101}
+.concept-note a{color:inherit;font-weight:600;text-decoration:underline}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.08;letter-spacing:-.01em;color:var(--ink)}
+h1{font-size:clamp(2.35rem,5.3vw,4rem)} h2{font-size:clamp(1.7rem,3.4vw,2.5rem)} h3{font-size:clamp(1.15rem,2vw,1.4rem)}
+p{max-width:68ch}
+.eyebrow{font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);display:inline-flex;align-items:center;gap:9px;margin-bottom:16px}
+.eyebrow::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none}
+.lead{font-size:clamp(1.08rem,1.7vw,1.3rem);line-height:1.55;color:var(--text-mid)}
+/* four house buttons: primary + ghost on light stock, primary-light + ghost-light on dark stock.
+   Text on dark uses --accent-lt, never --accent (D16: --accent may be a mid-L real brand colour; it is a fill). */
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:11px 22px;border-radius:8px;font-family:var(--sans);font-size:.82rem;font-weight:600;letter-spacing:.02em;border:1.5px solid transparent;background:transparent;transition:background .2s var(--ease),border-color .2s var(--ease),color .2s var(--ease),transform .2s var(--ease)}
+.btn:hover{transform:translateY(-1px)} .btn .arw{font-family:var(--mono);transition:transform .2s var(--ease)} .btn:hover .arw{transform:translateX(3px)}
+.btn-primary{background:var(--accent-ink);color:#fff} .btn-primary:hover{background:var(--accent-ink-d)}
+.btn-ghost{border-color:var(--tint-2);color:var(--accent-ink)} .btn-ghost:hover{background:var(--tint);border-color:var(--accent-ink)}
+.btn-primary-light{background:var(--accent-lt);color:var(--deep)} .btn-primary-light:hover{background:var(--tint)}
+.btn-ghost-light{border-color:oklch(0.98 0.01 var(--Hn)/.4);color:#fff} .btn-ghost-light:hover{background:oklch(0.98 0.01 var(--Hn)/.1)}
+/* nav: opaque by rule (no translucency, no blur); markup is emitted by scaffold.mjs from page.json */
+.site-nav{position:sticky;top:0;z-index:100;background:var(--paper);border-bottom:1px solid var(--line);transition:box-shadow .3s var(--ease)}
+.site-nav.scrolled{box-shadow:0 6px 24px oklch(0.3 0.02 var(--Hn)/.07)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
+.nav-brand{display:flex;align-items:center;gap:12px;min-height:44px;min-width:0}
+.nav-logo{display:flex;align-items:center;flex:none}
+.nav-logo img{height:26px;width:auto}
+.nav-name{font-family:var(--serif);font-size:1.2rem;line-height:1.1;color:var(--ink)}
+.nav-tick{font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;color:var(--text-mid);border:1px solid var(--line);border-radius:5px;padding:4px 8px}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a:not(.btn){font-size:.86rem;font-weight:500;color:var(--text-mid);transition:color .2s var(--ease)}
+.nav-links a:not(.btn):hover{color:var(--accent-ink)}
+.nav-links a.active{color:var(--ink);text-decoration:underline;text-underline-offset:7px;text-decoration-color:var(--accent);text-decoration-thickness:2px}
+.nav-burger{display:none;flex-direction:column;gap:5px;width:44px;height:44px;align-items:center;justify-content:center;background:none;border:none}
+.nav-burger span{width:22px;height:2px;background:var(--ink);border-radius:2px;transition:transform .25s var(--ease),opacity .2s}
+.nav-burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.nav-burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+/* bands: FLAT FILLS, the floor only; page/surface.css must override them (verify FAILs flat pages) */
+main{display:block;overflow-x:clip}   /* a translated reveal or wide motif can never widen the page */
+main>section{padding:clamp(56px,8vw,104px) 0}
+.sec-white{background:var(--paper)} .sec-tint{background:var(--tint)}
+.sec-dark{background:var(--deep);color:oklch(0.9 0.008 var(--Hn))}
+.sec-dark h1,.sec-dark h2,.sec-dark h3{color:#fff} .sec-dark .eyebrow{color:var(--accent-lt)} .sec-dark .eyebrow::before{background:var(--accent)}
+.sec-dark .lead{color:oklch(0.86 0.01 var(--Hn))}
+.sec-head{max-width:660px;margin-bottom:clamp(36px,5vw,56px)} .sec-head p{margin-top:14px}
+/* data sits on its own plate: table.fin cells are transparent, never paint a band behind figures */
+.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table.fin{width:100%;border-collapse:collapse;min-width:540px;font-size:.92rem}
+table.fin caption{text-align:left;font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--text-mid);padding:14px 20px;border-bottom:1px solid var(--line);background:var(--card)}
+table.fin th,table.fin td{text-align:left;padding:14px 20px;border-bottom:1px solid var(--line)}
+table.fin tbody tr:last-child td{border-bottom:none}
+table.fin td.num{font-family:var(--mono);text-align:right;color:var(--ink);font-weight:500}
+table.fin thead th{font-weight:700;color:var(--ink);background:var(--card)}
+footer{background:var(--deep);color:oklch(0.76 0.008 var(--Hn));padding:56px 0 28px}
+.fls{padding:32px 0 0;font-size:.78rem;line-height:1.7;color:oklch(0.68 0.008 var(--Hn));max-width:98ch} .fls b{color:oklch(0.85 0.01 var(--Hn))}
+.fls a{color:inherit;text-decoration:underline} .fls+.fls{padding-top:14px}
+.market-note{padding-top:18px;margin-top:18px;border-top:1px solid var(--line-d);font-size:.72rem;line-height:1.7;color:oklch(0.68 0.008 var(--Hn))}
+/* reveal: hidden only once motion.js has set html.js, so no-JS and JS failure show everything.
+   Direction variants set --reveal-from (components/motion-extra.css); stagger with style="--d:.08s". */
+.reveal{transition:opacity .65s var(--ease),transform .65s var(--ease);transition-delay:var(--d,0s)}
+.js .reveal:not(.in){opacity:0;transform:var(--reveal-from,translateY(20px))}
+/* motif pause: motion.js toggles .paused on #hero-motif off-screen, in a hidden tab, or via [data-motif-toggle] */
+.paused,.paused::before,.paused::after,.paused *,.paused *::before,.paused *::after{animation-play-state:paused!important}
+@media (max-width:900px){
+  .nav-burger{display:flex}
+  .nav-links{position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:2px;background:var(--paper);border-bottom:1px solid var(--line);padding:12px 22px 20px;opacity:0;transform:translateY(-10px);visibility:hidden;pointer-events:none;transition:opacity .28s var(--ease),transform .28s var(--ease),visibility .28s;box-shadow:0 16px 30px oklch(0.3 0.02 var(--Hn)/.08)}
+  .nav-links.open{opacity:1;transform:none;visibility:visible;pointer-events:auto}
+  .nav-links li{width:100%} .nav-links a:not(.btn){display:block;padding:12px 0} .nav-links .btn{margin-top:10px;display:inline-flex}
+}
+@media (max-width:768px){ .footer-links a,.contact-col a{min-height:44px;display:flex;align-items:center} }   /* 44px tap targets; (0,1,1) so layer.css can restyle */
+@media (prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto!important}
+  .reveal{transition:none} .js .reveal:not(.in){opacity:1;transform:none}
+  .btn:hover{transform:none} [class*="motif"]{animation:none!important} [data-motif-toggle]{display:none}
+}
+/* print (D12): decoration off, every reveal shown, dark bands re-inked dark-on-white (backgrounds may not print).
+   A custom dark band must carry .sec-dark so this, its focus ring and its heading colour all apply. */
+@media print{
+  *,*::before,*::after{background-image:none!important;box-shadow:none!important;text-shadow:none!important;animation:none!important;transition:none!important}
+  .site-nav{position:static} .nav-burger,.skip-link,[data-motif-toggle]{display:none!important}
+  .js .reveal:not(.in){opacity:1!important;transform:none!important}
+  .sec-dark,.sec-dark *,.hero,.hero *,.snapshot,.snapshot *,footer,footer *{background-color:transparent!important;color:#111!important;border-color:#bbb!important}
+  .sec-white,.sec-tint,.sec-dark,footer{background-color:#fff!important;border-top:1px solid #bbb}
+  .btn{background:transparent!important;color:#111!important;border-color:#111!important}
+  .table-scroll{overflow:visible;background:#fff!important}
+  main>section{padding:28px 0}
+}
+/* forced colors: the UA repaints every band to Canvas, so bands get a system seam instead */
+@media (forced-colors:active){
+  .sec-white,.sec-tint,.sec-dark,footer{background-image:none;border-top:1px solid CanvasText}
+  .btn{border-color:ButtonText}
+  .nav-burger span{forced-color-adjust:none;background:CanvasText}
+  .table-scroll{border-color:CanvasText}
+}
+/* mc:layer */
+/* ============================================================================================
+   Estrella Immunopharma visible layer. Archetype: editorial-asymmetric (ragged 0.78/1.22 columns, flipped band to band).
+   Colour: restrained on the real hues (navy #00182b ink and dark bands, cyan #41e0f3 fills and strokes only; --accent-ink is the text cyan).
+   Signature: the eight-point star of the logo as one unit: it ignites in the hero schematic, marks every section, and is counted out
+   as the twenty patients the Eureka statement of work assumes. Syne display (the site's own face), Montserrat body, DM Mono labels.
+   Figures are never set in Syne (old-style numerals); they use Montserrat or the mono.
+   ============================================================================================ */
+
+/* ---------- type ---------- */
+h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.018em;text-wrap:balance}
+h1{font-size:clamp(2.2rem,4.7vw,3.85rem);line-height:1.04;font-weight:500}
+h1 em{font-style:normal;font-weight:700;color:var(--accent-lt)}
+h2{font-size:clamp(1.6rem,3.1vw,2.45rem);line-height:1.08}
+h3{font-size:clamp(1.02rem,1.5vw,1.22rem);line-height:1.22}
+p{max-width:66ch}
+.eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.13em;gap:10px}
+.eyebrow::before{display:none}
+.eyebrow .mk{width:16px;height:16px;flex:none;color:var(--accent-ink)}
+.sec-dark .eyebrow .mk{color:var(--accent)}
+.sec-dark .eyebrow{color:var(--accent-lt)}
+.src-l{font-family:var(--mono);font-size:.7em;letter-spacing:0;white-space:nowrap;color:var(--accent-ink);text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;margin-left:.2em}
+.src-l:hover{text-decoration-style:solid}
+.sec-dark .src-l,.plate-wrap .src-l{color:var(--accent-lt)}
+.doc-l{font-family:var(--mono);font-size:.74rem;font-weight:500;color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.btn-light{background:var(--accent-lt);color:var(--deep)} .btn-light:hover{background:oklch(0.96 0.03 206.9)}
+.btn{font-family:var(--sans)}
+
+/* ---------- nav: dark navy so the white wordmark shows; opaque ---------- */
+.site-nav{background:var(--deep);border-bottom:1px solid var(--line-d)}
+.site-nav.scrolled{box-shadow:0 8px 28px oklch(0.1 0.03 244 / .4)}
+.nav-logo img{height:46px;width:auto}
+.nav-tick{color:oklch(0.84 0.03 206.9);border-color:var(--line-d)}
+.nav-links a:not(.btn){color:oklch(0.9 0.02 206.9);font-weight:500}
+.nav-links a:not(.btn):hover{color:#fff}
+.nav-links a.active{color:#fff;text-decoration-color:var(--accent)}
+.nav-links .btn-primary{background:var(--accent-lt);color:var(--deep)} .nav-links .btn-primary:hover{background:#fff}
+.nav-burger span{background:#fff}
+.site-nav :focus-visible{outline-color:var(--accent-lt)}
+@media (max-width:900px){.nav-links{background:var(--deep);border-bottom:1px solid var(--line-d);box-shadow:0 16px 30px oklch(0.1 0.03 244 / .4)}}
+
+/* ---------- the editorial grid: a narrow head column and a wide body column, flipped band to band ---------- */
+.ed-grid{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);gap:clamp(28px,6vw,96px);align-items:start}
+.ed-flip .ed-grid{grid-template-columns:minmax(0,1.22fr) minmax(0,.78fr)}
+.ed-flip .ed-grid>.ed-head{order:2}
+.ed-flip .ed-grid>.claims,.ed-flip .ed-grid>.plate-wrap{order:3}
+.ed-note{font-size:.93rem;line-height:1.6;color:var(--text-mid);margin-top:16px;max-width:44ch}
+.ed-head h2{max-width:20ch}
+.ed-grid>.plate-wrap,.ed-grid>.claims{grid-column:1/-1}
+
+@media (min-width:981px){
+  #record-2026 .ed-head,#disclosures .ed-head{position:sticky;top:104px}
+}
+/* the contact band: head on its own row, three columns below at the full measure */
+#contact .ed-grid{grid-template-columns:1fr;gap:clamp(22px,3vw,36px)}
+#contact .ed-head{order:0}
+#contact .ed-head h2{max-width:none}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(36px,5vw,64px) 0 0}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(24px,4vw,64px);align-items:center}
+.hero .lead{color:oklch(0.86 0.02 206.9);max-width:54ch;margin-top:20px;font-size:clamp(1rem,1.45vw,1.15rem)}
+.hero .src-l{color:var(--accent-lt)}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero-fig{margin:0;position:relative;min-width:0}
+.hero-svg{width:100%;height:auto;overflow:visible;max-height:min(70vh,560px)}
+.hero-fig figcaption{font-size:.74rem;line-height:1.5;color:oklch(0.8 0.02 206.9);margin-top:12px;max-width:46ch}
+.hero-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 clamp(18px,2.6vw,38px);margin-top:clamp(32px,4.6vw,56px)}
+.hero-facts>div{position:relative;padding:20px 0 clamp(36px,5vw,60px);border-top:1px solid var(--line-d)}
+.hero-facts>div::before{content:"";position:absolute;left:0;top:-1px;width:38px;height:2px;background:var(--accent)}
+.hero-facts .v{display:block;font-family:var(--sans);font-weight:600;font-size:clamp(2rem,3.5vw,3.1rem);line-height:1;letter-spacing:-.025em;color:#fff;font-variant-numeric:tabular-nums}
+.hero-facts .k{display:block;margin-top:12px;font-size:.78rem;line-height:1.55;color:oklch(0.83 0.02 206.9);max-width:32ch}
+.hero-facts .flag .v{font-family:var(--serif);font-weight:600;font-size:clamp(1.3rem,2.1vw,1.85rem);line-height:1.08;letter-spacing:-.015em;color:var(--accent-lt)}
+
+/* hero schematic */
+.e-mem{stroke-width:2}
+.e-mem-t{stroke:var(--accent-lt);stroke-opacity:.85}
+.e-mem-b{stroke:oklch(0.92 0.02 206.9);stroke-opacity:.7}
+.e-nuc{fill:none;stroke:oklch(0.92 0.02 206.9);stroke-opacity:.2;stroke-width:1.5;stroke-dasharray:3 6}
+.e-abtcr path,.e-cd19 path{fill:none;stroke:oklch(0.97 0.015 206.9);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.e-cd19 circle{fill:var(--accent-lt)}
+.e-cd3{fill:oklch(0.86 0.103 206.9 / .22);stroke:var(--accent-lt);stroke-width:1.3}
+.e-costim path{fill:none;stroke:var(--accent);stroke-width:2.2;stroke-linecap:round}
+.e-costim .e-costim-head,.m-costim .e-costim-head{fill:var(--accent);stroke:var(--accent);stroke-width:1}
+.e-orbit{fill:none;stroke:var(--accent);stroke-opacity:.5;stroke-width:1.3;stroke-linecap:round}
+.e-halo{fill:oklch(0.834 0.129 206.9 / .12);stroke:var(--accent);stroke-opacity:.5;stroke-width:1.2}
+.e-star{color:var(--accent);overflow:visible}
+/* motion: the final state is the BASE state; every animated class contains "motif"; animations loop gently and pause off-screen via #hero-motif.paused */
+.motif-tcell{animation:motif-dock 9s var(--ease) infinite}
+.motif-star{transform-box:fill-box;transform-origin:center;animation:motif-ignite 9s var(--ease) infinite}
+.motif-orbit{stroke-dasharray:1;stroke-dashoffset:0;animation:motif-orbit 9s ease-in-out infinite}
+.motif-ring{transform-box:fill-box;transform-origin:center;animation:motif-ring 3.6s ease-out infinite}
+@keyframes motif-dock{0%,28%,70%,100%{transform:translate(0,0)}40%,58%{transform:translate(-22px,16px)}}
+@keyframes motif-ignite{0%,30%,100%{transform:scale(1);opacity:1}40%,60%{transform:scale(.2);opacity:.1}72%{transform:scale(1.16);opacity:1}84%{transform:scale(1);opacity:1}}
+@keyframes motif-orbit{0%,30%,76%,100%{stroke-dashoffset:0}44%,58%{stroke-dashoffset:1}}
+@keyframes motif-ring{0%{transform:scale(.9);opacity:1}100%{transform:scale(1.75);opacity:0}}
+.reveal.in .motif-mark{animation:motif-turn 1.3s var(--ease)}
+@keyframes motif-turn{from{transform:rotate(-90deg) scale(.4);opacity:0}to{transform:none;opacity:1}}
+
+/* ---------- ledger: the dated record ---------- */
+.ldg{list-style:none;border-top:1px solid var(--ink)}
+.ldg li{display:grid;grid-template-columns:8.4rem minmax(0,1fr) auto;gap:6px 24px;padding:20px 8px;border-bottom:1px solid var(--line);align-items:baseline;transition:background .3s var(--ease)}
+.ldg li:hover{background:oklch(0.965 0.02 206.9 / .75)}
+.ldg-d{font-family:var(--mono);font-size:.76rem;letter-spacing:.03em;font-weight:500;color:var(--accent-ink)}
+.ldg-t{font-size:.93rem;line-height:1.58}
+.ldg-t b{font-family:var(--serif);font-weight:600;color:var(--ink);margin-right:.4em}
+.ldg-s{font-size:.8rem;text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+
+/* ---------- science ---------- */
+.sci-body{display:grid;gap:clamp(22px,3vw,36px);min-width:0}
+.mech{margin:0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:clamp(14px,2vw,24px)}
+.mech-svg{width:100%;height:auto}
+.mech figcaption{font-size:.76rem;line-height:1.5;color:var(--text-mid);margin-top:12px}
+.mech-steps{list-style:none;display:grid;gap:20px}
+.mech-steps li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:16px}
+.mech-steps .n{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--deep);color:#fff;font-family:var(--mono);font-size:.82rem;font-weight:500}
+.mech-steps h3{font-size:1.05rem;margin-bottom:6px;color:var(--ink)}
+.mech-steps p{font-size:.9rem;line-height:1.6;color:var(--text)}
+.e-lipid circle{fill:oklch(0.86 0.103 206.9 / .5);stroke:var(--accent-ink);stroke-width:1}
+.e-lipid-b circle{fill:oklch(0.30 0.019 244 / .16);stroke:var(--ink)}
+.m-cd19 path,.m-abtcr path,.m-costim path{fill:none;stroke:var(--ink);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.m-cd19 circle{fill:var(--accent-ink);stroke:none}
+.m-abtcr .m-eff{stroke:var(--accent-ink)}
+.m-abtcr .e-cd3{fill:oklch(0.834 0.129 206.9 / .35);stroke:var(--accent-ink);stroke-width:1.5}
+.m-cd{fill:var(--accent-ink);stroke:none}
+.m-costim .e-costim-head{fill:var(--accent);stroke:var(--accent-ink)}
+.m-sig{fill:none;stroke:var(--accent-ink);stroke-width:3;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:0}
+.m-sig-head{fill:none;stroke:var(--accent-ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.reveal.in .motif-sig{animation:motif-sigdraw 1.6s var(--ease)}
+@keyframes motif-sigdraw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+.m-lab{font-family:var(--mono);font-size:17px;fill:var(--text-mid);letter-spacing:.03em}
+.m-pin circle{fill:var(--deep);stroke:none}
+.m-pin text{font-family:var(--mono);font-size:13px;font-weight:500;fill:#fff}
+.claims{border-top:1px solid var(--ink);padding-top:clamp(20px,3vw,32px)}
+.claims-h{font-size:clamp(1.2rem,2vw,1.55rem);max-width:32ch}
+.claims-lede{font-size:.9rem;color:var(--text-mid);margin-top:10px;max-width:70ch}
+.claims-list{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,40px);margin-top:24px}
+.claims-list li{font-size:.9rem;line-height:1.62;padding-top:14px;border-top:2px solid var(--accent-ink)}
+.claims-list b{display:block;font-family:var(--serif);font-weight:600;font-size:1.02rem;color:var(--ink);margin-bottom:6px}
+
+/* ---------- trial ---------- */
+.phase{display:grid;border-top:1px solid var(--ink)}
+.phase>div{display:grid;grid-template-columns:9.4rem minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.phase dt{font-family:var(--mono);font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;color:var(--accent-ink);padding-top:4px}
+.phase dd{font-size:.93rem;line-height:1.62}
+.phase-src{padding-top:12px;font-size:.8rem}
+.plate-wrap{margin-top:clamp(18px,3vw,36px);padding:clamp(22px,3.4vw,44px);border-radius:14px;color:oklch(0.88 0.02 206.9)}
+.plate-wrap .plate-h{color:#fff;font-size:clamp(1.3rem,2.4vw,1.85rem)}
+.plate-lede{color:oklch(0.85 0.02 206.9);font-size:.9rem;line-height:1.65;max-width:78ch;margin-top:12px}
+.plate-wrap :focus-visible{outline-color:var(--accent-lt)}
+.stars{margin-top:28px}
+.stars-row{list-style:none;display:grid;grid-template-columns:repeat(20,minmax(0,1fr));gap:clamp(2px,.5vw,8px)}
+.s{aspect-ratio:1;color:oklch(0.98 0.019 206.9 / .16);transition:transform .7s var(--ease),opacity .7s var(--ease)}
+.s svg{width:100%;height:100%}
+.s-p1{color:var(--accent)}
+.s-p2{color:oklch(0.98 0.019 206.9)}
+.s-jul{color:oklch(0.834 0.129 206.9 / .55)}
+.plate-wrap.reveal:not(.in) .motif-s{opacity:.12;transform:scale(.55)}
+.plate-wrap.reveal.in .motif-s{transition-delay:calc(var(--i) * 55ms)}
+.stars-key,.sow-key,.ps-key{list-style:none;display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:16px;font-size:.78rem;line-height:1.45;color:oklch(0.85 0.02 206.9)}
+.stars-key li,.sow-key li,.ps-key li{display:flex;align-items:baseline;gap:8px}
+.sw{display:inline-block;width:11px;height:11px;border-radius:50%;flex:none;transform:translateY(1px)}
+.sw-p1{background:var(--accent)} .sw-p2{background:oklch(0.98 0.019 206.9)} .sw-jul{background:oklch(0.834 0.129 206.9 / .55)} .sw-off{background:oklch(0.98 0.019 206.9 / .16);outline:1px solid oklch(0.98 0.019 206.9 / .3)}
+.sow{margin-top:34px;display:grid;gap:14px}
+.sow-row{display:grid;grid-template-columns:minmax(0,11.5rem) minmax(0,1fr);gap:16px;align-items:center}
+.sow-l{font-family:var(--mono);font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;color:oklch(0.86 0.02 206.9);line-height:1.4}
+.sow-track{display:flex;gap:2px;height:36px;align-items:center;min-width:0}
+.sow-cashrow .sow-track{height:20px}
+.sow-seg{display:block;height:100%;flex:none;width:var(--w)}
+.sow-paid{background:var(--accent)} .sow-acc{background:oklch(0.98 0.019 206.9)} .sow-rest{background:oklch(0.98 0.019 206.9 / .1);outline:1px dashed oklch(0.98 0.019 206.9 / .4);outline-offset:-1px}
+.sow-cash{display:block;height:100%;width:var(--w);background:var(--accent);flex:none}
+.sow-cashv{font-family:var(--sans);font-variant-numeric:tabular-nums;font-weight:600;font-size:.84rem;color:#fff;margin-left:10px;white-space:nowrap}
+.sow-key{margin-top:4px}
+.sow-key b{font-family:var(--sans);font-weight:600;color:#fff}
+.sw-paid{background:var(--accent)} .sw-acc{background:oklch(0.98 0.019 206.9)} .sw-rest{background:oklch(0.98 0.019 206.9 / .1);outline:1px dashed oklch(0.98 0.019 206.9 / .5)}
+.sow-cap{font-size:.74rem;line-height:1.6;color:oklch(0.8 0.02 206.9);max-width:84ch}
+.motif-grow{transition:width 1.2s var(--ease)}
+.reveal:not(.in) .motif-grow{width:0}
+
+/* ---------- pipeline + market ---------- */
+.pip-body{display:grid;gap:clamp(28px,4vw,48px);min-width:0}
+.pip-h{font-size:1.05rem;margin-bottom:4px}
+.pip-list{list-style:none;border-top:1px solid var(--ink)}
+.pip-row{display:grid;grid-template-columns:8.4rem minmax(0,1fr);gap:8px 20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.pip-id{font-family:var(--serif);font-weight:700;font-size:1.05rem;color:var(--ink);line-height:1.2;overflow-wrap:anywhere}
+.pip-m{font-size:.88rem;line-height:1.5;color:var(--text)} .pip-m b{display:block;font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:2px}
+.pip-track{grid-column:2;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px;max-width:430px;margin-top:4px}
+.pt{height:26px;display:grid;place-items:center;border-radius:3px;font-family:var(--mono);font-size:.6rem;letter-spacing:.05em;text-transform:uppercase}
+.pt-off{background:oklch(0.30 0.019 244 / .08);color:var(--text-mid)}
+.pt-done{background:var(--accent-ink);color:#fff}
+.pt-now{background:var(--accent-lo);color:var(--ink);outline:2px solid var(--accent-ink);outline-offset:-2px;font-weight:500}
+.pip-st{grid-column:2;font-size:.84rem;line-height:1.5;color:var(--text-mid)}
+.mkt-h{font-size:clamp(1.15rem,1.9vw,1.4rem);max-width:36ch}
+.mkt-list{list-style:none;margin-top:14px;border-top:1px solid var(--ink)}
+.mkt-list li{padding:16px 0;border-bottom:1px solid var(--line);font-size:.9rem;line-height:1.62}
+.mkt-v{margin-right:.3em;font-family:var(--sans);font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
+
+/* ---------- financials ---------- */
+.fin-head{max-width:900px;margin-bottom:clamp(26px,4vw,44px)}
+.fin-head h2{max-width:26ch}
+.fin-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(18px,3vw,36px);margin-bottom:clamp(26px,4vw,44px)}
+.plate{margin:0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:clamp(18px,2.4vw,28px);min-width:0}
+.plate .plate-h{font-size:1.02rem;margin-bottom:16px;color:var(--ink)}
+.plate figcaption{font-size:.74rem;line-height:1.55;color:var(--text-mid);margin-top:16px}
+.pb-row,.pb-axis{display:grid;grid-template-columns:minmax(0,10.5rem) minmax(0,1fr) 4.6rem;gap:12px;align-items:center}
+.pb-row{padding:7px 0}
+.pb-l{font-size:.74rem;line-height:1.3;color:var(--text)}
+.pb-sub .pb-l{padding-left:12px;color:var(--text-mid)}
+.pb-track{display:block;height:15px;background:oklch(0.30 0.019 244 / .07);border-radius:2px}
+.pb-bar{display:block;height:100%;width:var(--w);border-radius:2px}
+.pb-cash .pb-bar{background:var(--accent-ink)} .pb-liab .pb-bar{background:var(--ink)} .pb-sub .pb-bar{background:oklch(0.52 0.03 244)}
+.pb-v{font-family:var(--sans);font-variant-numeric:tabular-nums;font-weight:500;font-size:.8rem;color:var(--ink);text-align:right}
+.pb-axis{margin-top:4px}
+.pb-axt{position:relative;display:block;height:18px}
+.pb-axt span{position:absolute;left:var(--x);transform:translateX(-50%);font-family:var(--mono);font-size:.62rem;color:var(--text-mid)}
+.pb-axt span:first-child{transform:none}
+.ps-row{display:grid;grid-template-columns:minmax(0,7rem) minmax(0,1fr) 6.2rem;gap:12px;align-items:center;padding:10px 0}
+.ps-l{font-size:.74rem;line-height:1.3}
+.ps-track{display:flex;gap:2px;height:22px;min-width:0}
+.ps-seg{display:block;height:100%;flex:none;width:var(--w);border-radius:2px}
+.ps-rel{background:var(--accent-ink)} .ps-oth{background:oklch(0.52 0.03 244)} .ps-ga{background:oklch(0.78 0.025 244)}
+.ps-v{font-family:var(--sans);font-variant-numeric:tabular-nums;font-weight:500;font-size:.82rem;color:var(--ink);text-align:right;line-height:1.3} .ps-v small{display:block;font-size:.62rem;color:var(--text-mid)}
+.plate .ps-key{color:var(--text-mid)}
+.plate .sw-rel{background:var(--accent-ink)} .plate .sw-oth{background:oklch(0.52 0.03 244)} .plate .sw-ga{background:oklch(0.78 0.025 244)}
+.tbl{margin-top:clamp(22px,3vw,34px)}
+.tbl-note{font-size:.78rem;line-height:1.6;color:var(--text-mid);margin-top:12px;max-width:96ch}
+table.fin td.num,table.fin th.num{text-align:right}
+table.fin td.num{font-family:var(--sans);font-variant-numeric:tabular-nums;font-weight:500;font-size:.9rem;white-space:nowrap}
+table.fin tbody tr:last-child th{border-bottom:none}
+table.fin th[scope=row]{font-weight:500;color:var(--ink)}
+table.fin thead th{font-family:var(--serif);font-size:.86rem;vertical-align:bottom}
+table.fin thead th small{display:block;font-family:var(--sans);font-size:.62rem;font-weight:500;letter-spacing:0;color:var(--text-mid);margin-top:3px;line-height:1.3}
+table.fin tr.tot th,table.fin tr.tot td{font-weight:700}
+table.fin tr.sub th{font-weight:400;color:var(--text-mid);font-size:.86rem}
+table.fin td.terms{font-size:.84rem;color:var(--text-mid);line-height:1.5}
+.dil{margin-top:clamp(36px,5vw,68px);padding-top:clamp(28px,4vw,48px);border-top:1px solid var(--ink)}
+.dil-h{font-size:clamp(1.25rem,2.3vw,1.8rem);max-width:22ch}
+.dil-h2{font-size:1.02rem;margin:30px 0 6px;color:var(--ink)}
+.fund{list-style:none;border-top:1px solid var(--ink)}
+.fund li{display:grid;grid-template-columns:8.4rem minmax(0,1fr) auto;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:.88rem;align-items:baseline}
+.fund-d{font-family:var(--mono);font-size:.74rem;color:var(--accent-ink);font-weight:500}
+.fund-v{font-family:var(--sans);font-variant-numeric:tabular-nums;font-size:.86rem;color:var(--ink);font-weight:600;white-space:nowrap}
+.fund-n{font-size:.8rem;line-height:1.6;color:var(--text-mid);margin-top:14px}
+
+/* ---------- disclosures: the gravest band. Darkest stock, ledger ruling, heavier type, never louder ---------- */
+.dis-sec .ed-note{color:oklch(0.8 0.02 244)}
+.dis-sec h2{max-width:16ch}
+.dis{list-style:none;border-top:1px solid oklch(0.98 0.019 206.9 / .28)}
+.dis-i{display:grid;grid-template-columns:4rem minmax(0,1fr);gap:0 22px;padding:clamp(24px,3.4vw,42px) 0;border-bottom:1px solid var(--line-d)}
+.dis-n{font-family:var(--sans);font-variant-numeric:tabular-nums;font-size:1.4rem;font-weight:600;color:oklch(0.78 0.04 206.9);line-height:1.1}
+.dis-b h3{font-size:clamp(1.15rem,1.9vw,1.5rem);line-height:1.18;color:#fff;max-width:34ch}
+.dis-b p{font-size:.92rem;line-height:1.68;color:oklch(0.86 0.02 244);margin-top:12px;max-width:68ch}
+.dis-b blockquote{margin:18px 0 6px;padding:18px 22px;border:1px solid var(--line-d);border-radius:6px;background:oklch(0.98 0.019 206.9 / .05);font-family:var(--serif);font-weight:500;font-size:1.02rem;line-height:1.5;color:#fff;max-width:66ch}
+.dis-b cite{display:block;margin-top:10px;font-style:normal;font-family:var(--mono);font-size:.7rem;color:oklch(0.8 0.02 244)}
+.nq{list-style:none;margin:16px 0 6px;border-top:1px solid var(--line-d)}
+.nq li{display:grid;grid-template-columns:10.4rem 9rem minmax(0,1fr);gap:6px 18px;padding:14px 0;border-bottom:1px solid var(--line-d);font-size:.86rem;line-height:1.55;color:oklch(0.86 0.02 244)}
+.nq-r{font-family:var(--mono);font-weight:500;color:#fff;font-size:.82rem} .nq-r small{display:block;font-family:var(--sans);font-size:.72rem;color:oklch(0.8 0.02 244);margin-top:2px}
+.nq-d{font-family:var(--mono);font-size:.76rem;color:oklch(0.84 0.04 206.9)}
+
+/* ---------- record + contact ---------- */
+.rec{list-style:none;border-top:1px solid var(--ink)}
+.rec li{display:grid;grid-template-columns:6.4rem 4.4rem minmax(0,1fr) auto;gap:4px 16px;padding:14px 8px;border-bottom:1px solid var(--line);align-items:baseline;transition:background .3s var(--ease)}
+.rec li:hover{background:oklch(1 0 0 / .6)}
+.rec-d,.rec-f{font-family:var(--mono);font-size:.76rem;color:var(--text-mid)}
+.rec-f{font-weight:500;color:var(--ink)}
+.rec-t{font-size:.9rem;line-height:1.45}
+.contact-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,40px)}
+.contact-col{padding-top:16px;border-top:1px solid var(--ink)}
+.contact-col h3{font-size:1.08rem;margin-bottom:10px;color:var(--ink)}
+.contact-col p{font-size:.9rem;line-height:1.6;margin-bottom:14px}
+
+/* ---------- footer ---------- */
+.footer-top{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-bottom:28px;border-bottom:1px solid var(--line-d)}
+.footer-logo img{height:60px;width:auto}
+.footer-links{display:flex;flex-wrap:wrap;gap:6px 24px;list-style:none}
+.footer-links a{font-family:var(--serif);font-size:.88rem;font-weight:500;color:oklch(0.92 0.015 206.9);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line-d)}
+.footer-links a:hover{color:#fff;text-decoration-color:var(--accent)}
+.fls a{color:inherit}
+
+/* ---------- responsive ---------- */
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-fig{max-width:520px;margin-inline:auto}
+  .hero-facts{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:6px}
+  .ed-grid,.ed-flip .ed-grid{grid-template-columns:1fr;gap:26px}
+  .ed-flip .ed-grid>.ed-head,.ed-flip .ed-grid>.claims,.ed-flip .ed-grid>.plate-wrap{order:0}
+  .ed-head h2,.dis-sec h2,.fin-head h2{max-width:none}
+  .claims-list{grid-template-columns:1fr}
+  .fin-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+  .ldg li{grid-template-columns:1fr;gap:4px;padding:16px 4px}
+  .ldg-s{text-align:left;flex-direction:row;align-items:baseline;gap:10px}
+  .phase>div{grid-template-columns:1fr;gap:6px}
+  .stars-row{grid-template-columns:repeat(10,minmax(0,1fr));gap:6px}
+  .sow-row{grid-template-columns:1fr;gap:8px}
+  .pb-row,.pb-axis{grid-template-columns:minmax(0,7rem) minmax(0,1fr) 3.8rem;gap:8px}
+  .ps-row{grid-template-columns:1fr;gap:6px}
+  .ps-v{text-align:left}
+  .pip-row{grid-template-columns:1fr}
+  .pip-track,.pip-st{grid-column:1}
+  .dis-i{grid-template-columns:1fr;gap:8px}
+  .nq li{grid-template-columns:1fr;gap:4px}
+  .rec li{grid-template-columns:auto auto minmax(0,1fr);gap:2px 12px;padding:14px 4px}
+  .rec-t{grid-column:1 / -1;order:3}
+  .rec .doc-l{grid-column:1 / -1;order:4;display:inline-flex;align-items:center;min-height:44px}
+  .fund li{grid-template-columns:1fr auto;gap:4px 12px}
+  .fund-d{grid-column:1 / -1}
+  /* reference tables read better as stacked cards than as a sideways scroll */
+  table.fin{min-width:0}
+  table.fin thead{display:none}
+  table.fin caption{white-space:normal}
+  table.fin tr{display:block;padding:12px 4px;border-bottom:1px solid var(--line)}
+  table.fin th[scope=row]{display:block;padding:0 0 6px;border:0}
+  table.fin td{display:flex;justify-content:space-between;gap:16px;padding:4px 0;border:0;text-align:right}
+  table.fin td.num{text-align:right}
+  table.fin td::before{content:attr(data-label);font-family:var(--sans);font-size:.72rem;color:var(--text-mid);text-align:left;white-space:normal}
+  table.fin td.terms{display:block;text-align:left}
+  table.fin td.terms::before{display:none}
+  table.fin tbody tr:last-child td{border-bottom:0}
+  /* the four-period statement reads as two columns of two, not four stacked lines */
+  table.stm tr{display:grid;grid-template-columns:1fr 1fr;column-gap:20px}
+  table.stm th[scope=row]{grid-column:1 / -1}
+  table.stm td{display:block;padding:2px 0;text-align:left}
+  table.stm td.num{text-align:left}
+  table.stm td::before{display:block;margin-bottom:1px}
+  .m-lab{font-size:22px}
+}
+@media (max-width:520px){
+  .hero-facts{grid-template-columns:1fr}
+  .hero-facts>div{padding-bottom:22px}
+  .hero-facts .k{max-width:none}
+  .nav-logo img{height:40px}
+}
+@media (prefers-reduced-motion:reduce){
+  .motif-grow,.motif-s,.s{transition:none!important}
+  .reveal:not(.in) .motif-grow{width:var(--w)}
+}
+@media print{
+  .hero,.sec-dark,.sec-dark-2,.plate-wrap,.site-nav,footer{background:#fff!important;color:#000!important}
+  .hero *,.sec-dark *,.plate-wrap *,.site-nav *,footer *{color:#000!important}
+  .motif-s,.motif-grow{opacity:1!important;transform:none!important}
+}
+
+
+/* ============================================================================================
+   DESIGN PASS (bolder). Boldness here is composition and craft: scale and weight contrast in Syne, a full-bleed plate that breaks the grid,
+   a dated ledger threaded with the logo's own star, sticky heads against the voids, a heavier gravest band. No new hue, no glow, no coloured field.
+   --star is the logo's eight-point star as a clip-path polygon (union of the long-ray and the 45-degree short-ray stars).
+   ============================================================================================ */
+:root{--star:polygon(50.0% 0%,52.7% 45.3%,53.3% 44.9%,69.8% 30.2%,55.1% 46.7%,54.7% 47.3%,100.0% 50.0%,54.7% 52.7%,55.1% 53.3%,69.8% 69.8%,53.3% 55.1%,52.7% 54.7%,50.0% 100.0%,47.3% 54.7%,46.7% 55.1%,30.2% 69.8%,44.9% 53.3%,45.3% 52.7%,0% 50.0%,45.3% 47.3%,44.9% 46.7%,30.2% 30.2%,46.7% 44.9%,47.3% 45.3%);--wrapw:min(var(--wrap),100vw - 44px)}
+
+/* ---------- type: a sharper weight contrast in the display face ---------- */
+h1{font-weight:400;font-size:clamp(2.1rem,4.25vw,3.7rem);line-height:1.02;letter-spacing:-.032em}
+h1 em{display:block;white-space:nowrap;font-weight:800;letter-spacing:-.04em}
+h2{font-weight:650;letter-spacing:-.024em;font-size:clamp(1.55rem,2.9vw,2.3rem)}
+.hero .lead{font-size:clamp(1rem,1.5vw,1.2rem);line-height:1.62}
+
+/* ---------- hero: the schematic bleeds to the viewport edge; the facts get more weight ---------- */
+.hero-svg{max-height:none;overflow:visible}
+@media (min-width:981px){
+  .hero-fig{margin-right:calc((var(--wrapw) - 100vw) / 2);margin-top:-8px}
+  .hero-fig figcaption{max-width:44ch}
+}
+.hero-facts .v{font-size:clamp(2.2rem,3.9vw,3.5rem);font-weight:700;letter-spacing:-.035em}
+.hero-facts>div{border-top-color:oklch(0.98 0.019 206.9 / .22)}
+.hero-facts>div::before{width:52px;height:3px;top:-2px}
+.hero-facts .flag .v{font-weight:700;font-size:clamp(1.4rem,2.3vw,2.05rem)}
+.motif-twinkle{opacity:.62;color:var(--accent-lt);animation:motif-twinkle 5.5s ease-in-out infinite}
+@keyframes motif-twinkle{0%,100%{opacity:.62}50%{opacity:.16}}
+
+/* ---------- ledgers: voids answered by sticky heads, a ghost star in the three non-ledger heads, and a star-threaded timeline ---------- */
+@media (min-width:981px){
+  .ed-grid>.ed-head{position:sticky;top:104px;align-self:start}
+  #contact .ed-head{position:static}
+  #trial .ed-head::after,#pipeline .ed-head::after{content:"";display:block;margin-top:clamp(34px,5vw,68px);width:clamp(110px,14vw,190px);aspect-ratio:1;background:var(--accent);clip-path:var(--star)}
+}
+.ldg{position:relative}
+.ldg::before{content:"";position:absolute;left:14px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--accent-ink),oklch(0.46 0.078 206.9 / .22));transform-origin:top;transition:transform 1.8s var(--ease)}
+.ldg.reveal:not(.in)::before{transform:scaleY(0)}
+.ldg li{position:relative;padding-left:46px}
+.ldg li::before{content:"";position:absolute;left:6px;top:21px;width:17px;height:17px;background:var(--accent-ink);clip-path:var(--star);transition:transform .4s var(--ease)}
+.ldg li:hover::before{transform:scale(1.35) rotate(45deg)}
+.ldg-d{font-size:.78rem;font-weight:500}
+.ldg-t{font-size:.96rem}
+.ldg-t b{font-size:1.04rem}
+
+/* ---------- the plate: full-bleed navy, the one place the page breaks its own grid ---------- */
+#trial{padding-bottom:0}
+#trial .plate-wrap{width:100vw;margin-left:calc(50% - 50vw);margin-top:clamp(28px,4.4vw,64px);border-radius:0;padding:clamp(40px,5.6vw,84px) max(22px,calc((100vw - var(--wrap)) / 2))}
+.plate-wrap .plate-h{font-size:clamp(1.8rem,3.6vw,3rem);line-height:1.04;font-weight:700;letter-spacing:-.028em}
+.plate-lede{font-size:.95rem;max-width:80ch}
+.stars{margin-top:clamp(30px,4vw,52px)}
+.stars-row{gap:clamp(2px,.7vw,12px)}
+.s{transition:transform .7s var(--ease),opacity .7s var(--ease),color .3s}
+.s:hover{transform:scale(1.22) rotate(22deg)}
+.s-p1,.s-p2{filter:none}
+.sow{margin-top:clamp(30px,4vw,52px);gap:18px}
+.sow-track{height:46px}
+.sow-cashrow .sow-track{height:24px}
+.sow-l{font-size:.74rem}
+
+/* ---------- financial plates: more presence ---------- */
+.plate{padding:clamp(22px,2.8vw,34px)}
+.plate .plate-h{font-size:clamp(1.15rem,1.8vw,1.45rem);font-weight:700;margin-bottom:20px}
+.pb-row{padding:9px 0}
+.pb-track{height:22px;border-radius:0}
+.pb-bar{border-radius:0}
+.pb-liab .pb-bar{background:var(--deep)}
+.pb-sub .pb-bar{background:repeating-linear-gradient(135deg,var(--deep) 0 3px,oklch(0.52 0.03 244) 3px 7px)}
+.pb-l{font-size:.78rem}
+.pb-v{font-size:.9rem;font-weight:600}
+.ps-track{height:30px}
+.ps-seg{border-radius:0}
+.ps-v{font-size:.95rem;font-weight:600}
+.fin-head h2{font-size:clamp(1.9rem,3.8vw,3.1rem);max-width:22ch}
+
+/* ---------- disclosures: the gravest band. Heavier, darker, more space, never a coloured field ---------- */
+.dis-sec{padding:clamp(72px,10vw,136px) 0}
+.dis-sec h2{font-size:clamp(1.8rem,3.3vw,2.7rem);font-weight:700}
+.dis{border-top:2px solid oklch(0.98 0.019 206.9 / .4)}
+.dis-i{position:relative;padding:clamp(30px,4.2vw,56px) 0;grid-template-columns:5.4rem minmax(0,1fr)}
+.dis-i::before{content:"";position:absolute;left:0;top:-1px;height:1px;width:100%;background:oklch(0.98 0.019 206.9 / .14);transform-origin:left;transition:transform 1.2s var(--ease)}
+.dis.reveal:not(.in) .dis-i::before{transform:scaleX(0)}
+.dis.reveal.in .dis-i:nth-child(2)::before{transition-delay:.08s}.dis.reveal.in .dis-i:nth-child(3)::before{transition-delay:.16s}
+.dis.reveal.in .dis-i:nth-child(4)::before{transition-delay:.24s}.dis.reveal.in .dis-i:nth-child(5)::before{transition-delay:.32s}.dis.reveal.in .dis-i:nth-child(6)::before{transition-delay:.4s}
+.dis-n{font-size:clamp(1.9rem,3vw,2.7rem);font-weight:700;color:oklch(0.62 0.04 206.9);letter-spacing:-.03em;line-height:1}
+.dis-b h3{font-size:clamp(1.3rem,2.2vw,1.85rem);font-weight:700;line-height:1.12;letter-spacing:-.02em;max-width:30ch}
+.dis-i:first-child .dis-b h3{font-size:clamp(1.55rem,2.9vw,2.4rem)}
+.dis-b p{font-size:.95rem;line-height:1.72}
+.dis-b blockquote{font-size:clamp(1.08rem,1.5vw,1.3rem);line-height:1.5;padding:24px 28px;background:oklch(0.98 0.019 206.9 / .06);border-color:oklch(0.98 0.019 206.9 / .22)}
+
+/* ---------- record: the rows lift on hover ---------- */
+.rec li:hover .rec-t{color:var(--ink)}
+.contact-col h3{font-size:1.25rem;font-weight:700}
+
+/* ---------- responsive for the pass ---------- */
+@media (max-width:980px){
+  .hero-fig{margin-right:auto}
+  .hero-facts .v{font-size:clamp(2.1rem,7vw,3rem)}
+  #trial .plate-wrap{padding-block:36px}
+  .ed-grid>.ed-head{position:static}
+  .dis-i{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+  h1{font-size:2.05rem}
+  h1 em{font-weight:700;letter-spacing:-.03em}
+  .ldg::before{left:8px}
+  .ldg li{padding-left:34px}
+  .ldg li::before{left:1px;top:19px;width:15px;height:15px}
+  .plate-wrap .plate-h{font-size:clamp(1.6rem,7.4vw,2.2rem)}
+  .sow-track{height:38px}
+  .pb-track{height:20px}
+}
+@media (prefers-reduced-motion:reduce){
+  .ldg::before,.ldg li::before,.dis-i::before,.s{transition:none!important}
+  .ldg.reveal:not(.in)::before{transform:none}
+  .dis.reveal:not(.in) .dis-i::before{transform:none}
+}
+@media print{
+  .ed-head::after{display:none}
+  .ldg::before,.ldg li::before{display:none}
+}
+/* mc:surface */
+/* Estrella surface system. Derived from the signature: the logo's eight-point star, whose long axes become thin plus-shaped crop marks in each band's top corners.
+   Polarity: printed dark ruling on white stock (head wash + marks only), BLIND WHITE ruling on tinted stock, negative ruling on navy.
+   Every stock sets background-image, -size, -position and -repeat as index-aligned lists (the longhands are required: size, position and repeat are
+   not valid inside a background-image list). Layer order on light stock: the marks sit in the unreachable gutter (x <= 16px; the wrap is 100% - 44px and the
+   section padding is >= 56px) so they go on top; the wash is under them; text never lands on either. Do not reorder to "fix" the order.
+   Four distinct stocks plus the plate: white, tint, hero navy (cyan field, orbital rings, ledger), gravest navy (vignette, ledger), and the plate inset. */
+:root{
+  --sheet-edge: oklch(0.40 0.068 206.9 / 0.30);
+  --blind:      oklch(1 0 0 / 0.55);
+  --blind-k:    oklch(1 0 0 / 0.9);
+  --sheet-neg:  oklch(0.98 0.019 206.9 / 0.055);
+  --mark-ink:   oklch(0.26 0.019 244 / 0.34);
+  --mark-neg:   oklch(0.86 0.103 206.9 / 0.5);
+}
+
+/* white stock: head wash tint to paper over 230px, crop marks on top */
+.sec-white{
+  background-color:var(--paper);
+  background-image:
+    linear-gradient(var(--mark-ink),var(--mark-ink)),
+    linear-gradient(var(--mark-ink),var(--mark-ink)),
+    linear-gradient(var(--mark-ink),var(--mark-ink)),
+    linear-gradient(var(--mark-ink),var(--mark-ink)),
+    linear-gradient(to bottom, var(--tint) 0, var(--paper) 230px);
+  background-size:
+    12px 1px,
+    1px 12px,
+    12px 1px,
+    1px 12px,
+    100% 230px;
+  background-position:
+    left 5px top 14px,
+    left 10.5px top 8.5px,
+    right 5px top 14px,
+    right 10.5px top 8.5px,
+    0 0;
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat;
+}
+
+/* tinted stock: BLIND WHITE ruling (a 32px minor and a 160px major) under the marks */
+.sec-tint{
+  background-color:var(--tint);
+  background-image:
+    linear-gradient(var(--mark-ink),var(--mark-ink)),
+    linear-gradient(var(--mark-ink),var(--mark-ink)),
+    linear-gradient(var(--mark-ink),var(--mark-ink)),
+    linear-gradient(var(--mark-ink),var(--mark-ink)),
+    repeating-linear-gradient(180deg, var(--blind-k) 0 2px, transparent 2px 160px),
+    repeating-linear-gradient(180deg, var(--blind) 0 1px, transparent 1px 32px);
+  background-size:
+    12px 1px,
+    1px 12px,
+    12px 1px,
+    1px 12px,
+    auto,
+    auto;
+  background-position:
+    left 5px top 14px,
+    left 10.5px top 8.5px,
+    right 5px top 14px,
+    right 10.5px top 8.5px,
+    0 0,
+    0 0;
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    repeat,
+    repeat;
+}
+
+/* hero navy: a cyan field behind the schematic, a faint one low left, orbital rings centred on the contact point (a navy vignette above them fades them out), the sheet printed in negative */
+.sec-dark{
+  background-color:var(--deep);
+  background-image:
+    linear-gradient(var(--mark-neg),var(--mark-neg)),
+    linear-gradient(var(--mark-neg),var(--mark-neg)),
+    linear-gradient(var(--mark-neg),var(--mark-neg)),
+    linear-gradient(var(--mark-neg),var(--mark-neg)),
+    radial-gradient(58% 70% at 80% 38%, oklch(0.834 0.129 206.9 / 0.17), transparent 72%),
+    radial-gradient(40% 50% at 4% 96%, oklch(0.834 0.129 206.9 / 0.07), transparent 70%),
+    radial-gradient(ellipse 62% 86% at 76% 42%, transparent 0, transparent 52%, oklch(0.201 0.050 244 / 0.96) 100%),
+    repeating-radial-gradient(ellipse 60% 80% at 76% 42%, transparent 0 54px, oklch(0.834 0.129 206.9 / 0.14) 54px 55px),
+    repeating-linear-gradient(180deg, var(--sheet-neg) 0 1px, transparent 1px 32px),
+    linear-gradient(180deg, oklch(0.235 0.054 244) 0, var(--deep) 62%);
+  background-size:
+    12px 1px,
+    1px 12px,
+    12px 1px,
+    1px 12px,
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    auto,
+    100% 100%;
+  background-position:
+    left 5px top 14px,
+    left 10.5px top 8.5px,
+    right 5px top 14px,
+    right 10.5px top 8.5px,
+    0 0,
+    0 0,
+    0 0,
+    0 0,
+    0 0,
+    0 0;
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    repeat,
+    no-repeat;
+}
+
+/* gravest band: its own stock. The darkest navy, a vignette that darkens the edges, a plain ledger ruling every 28px (the disclosures are a ledger), no radial glow, no added chroma */
+.sec-dark-2{
+  background-color:var(--deep-2);
+  background-image:
+    linear-gradient(var(--mark-neg),var(--mark-neg)),
+    linear-gradient(var(--mark-neg),var(--mark-neg)),
+    linear-gradient(var(--mark-neg),var(--mark-neg)),
+    linear-gradient(var(--mark-neg),var(--mark-neg)),
+    radial-gradient(ellipse 130% 70% at 50% 0%, transparent 0, transparent 38%, oklch(0.105 0.03 244 / 0.7) 100%),
+    repeating-linear-gradient(180deg, oklch(0.98 0.019 206.9 / 0.065) 0 1px, transparent 1px 28px);
+  background-size:
+    12px 1px,
+    1px 12px,
+    12px 1px,
+    1px 12px,
+    100% 100%,
+    auto;
+  background-position:
+    left 5px top 14px,
+    left 10.5px top 8.5px,
+    right 5px top 14px,
+    right 10.5px top 8.5px,
+    0 0,
+    0 0;
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    repeat;
+}
+
+/* the plate inset (twenty stars), full-bleed: navy with a cyan field under the stars and the ruling in negative */
+.plate-wrap{
+  background-color:var(--deep);
+  background-image:
+    radial-gradient(60% 55% at 50% 26%, oklch(0.834 0.129 206.9 / 0.14), transparent 72%),
+    repeating-linear-gradient(180deg, var(--sheet-neg) 0 1px, transparent 1px 28px),
+    linear-gradient(180deg, oklch(0.235 0.054 244) 0, var(--deep) 70%);
+  background-size:
+    100% 100%,
+    auto,
+    100% 100%;
+  background-position:
+    0 0,
+    0 0,
+    0 0;
+  background-repeat:
+    no-repeat,
+    repeat,
+    no-repeat;
+}
+
+footer{
+  background-color:var(--deep-2);
+  background-image:
+    linear-gradient(var(--mark-neg),var(--mark-neg)),
+    linear-gradient(var(--mark-neg),var(--mark-neg)),
+    linear-gradient(var(--mark-neg),var(--mark-neg)),
+    linear-gradient(var(--mark-neg),var(--mark-neg)),
+    linear-gradient(180deg, transparent 0, oklch(0.12 0.03 244) 100%);
+  background-size:
+    12px 1px,
+    1px 12px,
+    12px 1px,
+    1px 12px,
+    100% 100%;
+  background-position:
+    left 5px top 14px,
+    left 10.5px top 8.5px,
+    right 5px top 14px,
+    right 10.5px top 8.5px,
+    0 0;
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat;
+}
+
+.table-scroll{background:var(--card)}   /* table cells are transparent; never paint a band behind data */
+
+@media print{
+  .sec-white,.sec-tint,.sec-dark,.sec-dark-2,.plate-wrap,footer{background-image:none}
+}
+@media (forced-colors:active){
+  /* background-image is dropped here too; the bands keep their system colours and the crop marks simply disappear */
+  .sec-white,.sec-tint,.sec-dark,.sec-dark-2,.plate-wrap,footer{background-image:none}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="concept-note">Independent design concept. Not affiliated with Estrella Immunopharma, Inc. Official investor relations: <a href="https://www.estrellabio.com/investors" target="_blank" rel="noopener">estrellabio.com/investors</a></div>
+
+<header class="site-nav">
+  <div class="wrap nav-inner">
+    <a class="nav-brand" href="#hero"><span class="nav-logo"><img src="img/logo-estrella.png" alt="Estrella Immunopharma" width="262" height="123"></span><span class="nav-tick">Nasdaq: ESLA</span></a>
+    <nav aria-label="Primary">
+      <button class="nav-burger" id="nav-burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#science">Science</a></li>
+        <li><a href="#trial">Trial</a></li>
+        <li><a href="#financials">Financials</a></li>
+        <li><a href="#disclosures">Disclosures</a></li>
+        <li><a href="#record">Record</a></li>
+        <li><a class="btn btn-primary" href="#contact">Contact IR <span class="arw" aria-hidden="true">-&gt;</span></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<svg class="svg-defs" width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute"><symbol id="e-star" viewBox="-50 -50 100 100"><g fill="currentColor"><path d="M0,-48 L2.7,-2.7 L48,0 L2.7,2.7 L0,48 L-2.7,2.7 L-48,0 L-2.7,-2.7 Z"/><path d="M0,-48 L2.7,-2.7 L48,0 L2.7,2.7 L0,48 L-2.7,2.7 L-48,0 L-2.7,-2.7 Z" transform="rotate(45) scale(.56)"/><circle r="4.2"/></g></symbol></svg>
+<!-- ============ 01 HERO (dark navy): identity first, then the four facts a reader needs, one of them the going-concern conclusion. The right half is an animated schematic of the mechanism the company describes; the logo's eight-point star lights where the receptors meet their target. ============ -->
+<section id="hero" class="hero sec-dark" aria-labelledby="hero-h">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow reveal"><svg class="mk motif-mark" aria-hidden="true" focusable="false"><use href="#e-star"/></svg>Estrella Immunopharma &middot; Nasdaq: ESLA</p>
+      <h1 id="hero-h" class="reveal" style="--d:.05s">A clinical-stage <em>T-cell therapy</em> company</h1>
+      <p class="lead reveal" style="--d:.1s">Estrella develops T-cell therapies built on the ARTEMIS receptor platform. Its lead candidate, EB103, targets CD19 on B cells and is in STARLIGHT-1, a Phase I/II trial in relapsed or refractory B-cell non-Hodgkin lymphoma, where the company reports that Phase II dosing began in January 2026. The company&rsquo;s own filings also state substantial doubt about its ability to continue as a going concern. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 1</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, Note 1</a></p>
+      <div class="hero-cta reveal" style="--d:.15s">
+        <a class="btn btn-light" href="#disclosures">Read the disclosures <span class="arw" aria-hidden="true">&rarr;</span></a>
+        <a class="btn btn-ghost-light" href="https://www.estrellabio.com/investors" target="_blank" rel="noopener">Official investor page <span class="arw" aria-hidden="true">&nearr;</span></a>
+      </div>
+    </div>
+    <figure id="hero-motif" class="hero-fig reveal" style="--d:.12s">
+      <svg class="hero-svg" viewBox="0 0 600 560" role="img" aria-labelledby="hs-t hs-d" xmlns="http://www.w3.org/2000/svg"><title id="hs-t">Schematic of an ARTEMIS T cell engaging a CD19-positive B cell</title><desc id="hs-d">A T cell on the lower left carries receptors that reach toward CD19 proteins on a B cell at the upper right; where they meet, an eight-point star lights. Every few seconds the cells drift apart and dock again. A schematic after the company&#8217;s description, not to scale and not clinical data.</desc><defs><radialGradient id="hs-gt" cx="62%" cy="38%" r="75%"><stop offset="0" stop-color="oklch(0.86 0.103 206.9)" stop-opacity=".16"/><stop offset="1" stop-color="oklch(0.86 0.103 206.9)" stop-opacity="0"/></radialGradient><radialGradient id="hs-gb" cx="38%" cy="62%" r="75%"><stop offset="0" stop-color="oklch(0.98 0.019 206.9)" stop-opacity=".13"/><stop offset="1" stop-color="oklch(0.98 0.019 206.9)" stop-opacity="0"/></radialGradient></defs><g transform="rotate(-29.7 315.1 268.4)"><path class="e-orbit motif-orbit" pathLength="1" d="M53.1,268.4 A262,86 0 1 1 577.1,268.4 A262,86 0 1 1 53.1,268.4"/></g><g class="e-bcell"><circle class="e-mem e-mem-b" cx="440" cy="165" r="128" fill="url(#hs-gb)"/><circle class="e-nuc" cx="478" cy="135" r="52"/><g class="e-cd19"><path d="M312.9,180.2 L275.1,208.5"/><circle cx="271.1" cy="211.5" r="7.2"/></g><g class="e-cd19"><path d="M322.4,215.5 L294.3,237.3"/><circle cx="290.3" cy="240.4" r="7.2"/></g><g class="e-cd19"><path d="M341.4,246.6 L317,266.8"/><circle cx="313.2" cy="270" r="7.2"/></g><g class="e-cd19"><path d="M368.4,271.1 L341.7,294.6"/><circle cx="337.9" cy="297.9" r="7.2"/></g><g class="e-cd19"><path d="M401.3,287 L366.4,318.8"/><circle cx="362.7" cy="322.2" r="7.2"/></g></g><g class="motif-tcell"><circle class="e-mem e-mem-t" cx="150" cy="405" r="152" fill="url(#hs-gt)"/><circle class="e-nuc" cx="120" cy="443" r="58"/><g class="e-abtcr"><path d="M203,262.5 L256.8,222.2 M256.8,222.2 L275,216.7 M256.8,222.2 L267.2,206.3"/><ellipse class="e-cd3" cx="206.3" cy="273.7" rx="5.4" ry="3.4" transform="rotate(-36.8 206.3 273.7)"/><ellipse class="e-cd3" cx="193.2" cy="256.1" rx="5.4" ry="3.4" transform="rotate(-36.8 193.2 256.1)"/></g><g class="e-costim"><path d="M238,281.1 L281.6,247.2"/><path class="e-costim-head" d="M292.7,238.6 L290.2,246.8 L281.6,247.2 L284.1,238.9 Z"/></g><g class="e-abtcr"><path d="M267.1,308.1 L303.5,278 M303.5,278 L317.3,275 M303.5,278 L309,265"/><ellipse class="e-cd3" cx="271" cy="319.1" rx="5.4" ry="3.4" transform="rotate(-39.6 271 319.1)"/><ellipse class="e-cd3" cx="257" cy="302.2" rx="5.4" ry="3.4" transform="rotate(-39.6 257 302.2)"/></g><g class="e-costim"><path d="M288.2,341.7 L329.7,305.2"/><path class="e-costim-head" d="M340.2,296 L338.2,304.3 L329.7,305.2 L331.6,296.8 Z"/></g><g class="e-abtcr"><path d="M299.9,379.6 L349.6,334.2 M349.6,334.2 L367.1,327 M349.6,334.2 L358.4,317.4"/><ellipse class="e-cd3" cx="304.3" cy="390.4" rx="5.4" ry="3.4" transform="rotate(-42.4 304.3 390.4)"/><ellipse class="e-cd3" cx="289.5" cy="374.2" rx="5.4" ry="3.4" transform="rotate(-42.4 289.5 374.2)"/></g></g><g class="motif-star-wrap" transform="translate(315.1 268.4)"><g class="motif-star"><circle class="e-halo motif-ring" r="40"/><svg x="-62" y="-62" width="124" height="124" class="e-star"><use href="#e-star"/></svg></g></g><svg class="e-star motif-twinkle" x="70" y="108" width="30" height="30" style="animation-delay:-0s"><use href="#e-star"/></svg><svg class="e-star motif-twinkle" x="520" y="470" width="24" height="24" style="animation-delay:-1.7s"><use href="#e-star"/></svg><svg class="e-star motif-twinkle" x="556" y="330" width="17" height="17" style="animation-delay:-3.1s"><use href="#e-star"/></svg><svg class="e-star motif-twinkle" x="30" y="300" width="15" height="15" style="animation-delay:-2.2s"><use href="#e-star"/></svg><svg class="e-star motif-twinkle" x="236" y="40" width="19" height="19" style="animation-delay:-4.0s"><use href="#e-star"/></svg><svg class="e-star motif-twinkle" x="350" y="505" width="15" height="15" style="animation-delay:-0.9s"><use href="#e-star"/></svg></svg>
+      <figcaption>Schematic, after the company&rsquo;s description of its receptors engaging CD19 on a B cell. Not to scale; not clinical data. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 1</a></figcaption>
+    </figure>
+  </div>
+  <div class="wrap">
+    <div class="hero-facts reveal" style="--d:.18s">
+      <div>
+        <span class="v">11</span>
+        <span class="k">patients dosed in STARLIGHT-1 as of Jun&nbsp;30, 2026: nine in Phase I and two in Phase II; the 10-Q reports a twelfth in July <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, Note 1</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, Note 11</a></span>
+      </div>
+      <div>
+        <span class="v">$0.15M</span>
+        <span class="k">cash at Jun&nbsp;30, 2026, unaudited, against $9.3M of current liabilities, $8.3M of it accrued to Eureka <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, balance sheet</a></span>
+      </div>
+      <div>
+        <span class="v">$7.4M</span>
+        <span class="k">stockholders&rsquo; deficit at Jun&nbsp;30, 2026, unaudited, after an accumulated deficit of $41.6M <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, balance sheet</a></span>
+      </div>
+      <div class="flag">
+        <span class="v">Substantial doubt</span>
+        <span class="k">about the ability to continue as a going concern, stated in the 10-K for 2025 and again in the 10-Q for the quarter ended Jun&nbsp;30, 2026 <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 1A</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, Note 1</a></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 THE DATED RECORD: traction + press in one ledger. Every row is a filing; none is a press release the company has not filed. ============ -->
+<section id="record-2026" class="sec-white ed" aria-labelledby="chg-h">
+  <div class="wrap ed-grid">
+    <header class="ed-head reveal">
+      <p class="eyebrow"><svg class="mk motif-mark" aria-hidden="true" focusable="false"><use href="#e-star"/></svg>The dated record</p>
+      <h2 id="chg-h">What the filings record since the start of 2026</h2>
+      <p class="ed-note">Eleven events, oldest first, each linked to the filing that reports it.</p>
+    </header>
+    <ol class="ldg reveal" style="--d:.06s">
+      <li><span class="ldg-d">Jan&nbsp;5 to 6, 2026</span><span class="ldg-t"><b>Financing.</b> A securities purchase agreement with one healthcare-focused institutional investor: 4,063,290 shares and pre-funded warrants for 1,000,000 more, each sold with one and a half common warrants at a combined $1.58 a unit. That is about $8.0M gross and, the 10-Q says, about $7.2M net. The warrants cover 7,594,935 shares at $1.39 and expire Jan&nbsp;6, 2031. All the pre-funded warrants had been exercised by Jun&nbsp;30, 2026.</span><span class="ldg-s"><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026001777/ea0271975-8k_estrella.htm" target="_blank" rel="noopener">8-K, Jan&nbsp;6, 2026</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, Note 7</a></span></li>
+      <li><span class="ldg-d">Jan&nbsp;7, 2026</span><span class="ldg-t"><b>Nasdaq notice.</b> The company was told it was out of compliance with Listing Rule 5620(a) because it had not held an annual meeting within twelve months of the end of its transition period.</span><span class="ldg-s"><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026003998/ea027282201-8k_estrellaimmu.htm" target="_blank" rel="noopener">8-K, Jan&nbsp;13, 2026</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 1A</a></span></li>
+      <li><span class="ldg-d">Jan to Jun, 2026</span><span class="ldg-t"><b>Phase II dosing.</b> Phase II patients dosed in January and June, bringing the total dosed to eleven by Jun&nbsp;30.</span><span class="ldg-s"><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, Note 1</a></span></li>
+      <li><span class="ldg-d">Feb&nbsp;27, 2026</span><span class="ldg-t"><b>Extension granted.</b> Nasdaq accepted the company&rsquo;s plan and allowed until Jun&nbsp;29, 2026 to hold the meeting.</span><span class="ldg-s"><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 1A</a></span></li>
+      <li><span class="ldg-d">Mar&nbsp;18, 2026</span><span class="ldg-t"><b>Annual report.</b> The 10-K for 2025 carries a going-concern paragraph from the auditor, Macias Gini &amp; O&rsquo;Connell LLP.</span><span class="ldg-s"><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 8</a></span></li>
+      <li><span class="ldg-d">Jun&nbsp;29, 2026</span><span class="ldg-t"><b>Meeting held; notice cured.</b> At the Combined 2025/2026 Annual Meeting the one proposal, ratifying the auditor, passed 30,351,203 to 400, and the company says Rule 5620(a) compliance was regained.</span><span class="ldg-s"><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026073847/ea029661701-8k_estrella.htm" target="_blank" rel="noopener">8-K, Jun&nbsp;30, 2026</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, Note 1</a></span></li>
+      <li><span class="ldg-d">Jul&nbsp;1, 2026</span><span class="ldg-t"><b>True-up shares.</b> 463,636 shares were issued to the 2025 private-placement investors to settle a price-protection (true-up) obligation.</span><span class="ldg-s"><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, Note 11</a></span></li>
+      <li><span class="ldg-d">July, 2026</span><span class="ldg-t"><b>Twelfth patient.</b> One more patient was dosed in STARLIGHT-1 and an additional $1.375M was accrued to Eureka under the statement of work.</span><span class="ldg-s"><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, Note 11</a></span></li>
+      <li><span class="ldg-d">Aug&nbsp;13, 2026</span><span class="ldg-t"><b>Quarterly report.</b> The 10-Q states substantial doubt about the company&rsquo;s ability to continue as a going concern and cites a share price of $0.722 on Aug&nbsp;10.</span><span class="ldg-s"><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, Note 1</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, MD&amp;A</a></span></li>
+      <li><span class="ldg-d">Aug&nbsp;17, 2026</span><span class="ldg-t"><b>Bid-price notice.</b> Nasdaq said the closing bid had been below $1.00 for 30 consecutive business days; the company has until Feb&nbsp;16, 2027 to regain compliance.</span><span class="ldg-s"><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026092657/ea0303066-8k_estrella.htm" target="_blank" rel="noopener">8-K, Aug&nbsp;21, 2026</a></span></li>
+      <li><span class="ldg-d">Sep&nbsp;1, 2026</span><span class="ldg-t"><b>Market-value notice.</b> Nasdaq said the market value of listed securities had been below $35M for 30 consecutive business days; the company has until Mar&nbsp;1, 2027 to regain compliance.</span><span class="ldg-s"><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026098123/ea030490301-8k_estrella.htm" target="_blank" rel="noopener">8-K, Sep&nbsp;8, 2026</a></span></li>
+    </ol>
+  </div>
+</section>
+<!-- ============ 03 SCIENCE (tint): overview + platform + how it works + differentiators. Molecule-level figure with numbered markers; the steps use the 10-K's own terms; the differences are the company's belief, attributed. ============ -->
+<section id="science" class="sec-tint ed ed-flip" aria-labelledby="sci-h">
+  <div class="wrap ed-grid">
+    <header class="ed-head reveal">
+      <p class="eyebrow"><svg class="mk motif-mark" aria-hidden="true" focusable="false"><use href="#e-star"/></svg>The science</p>
+      <h2 id="sci-h">Two receptors, one T cell: how ARTEMIS is meant to work</h2>
+      <p class="ed-note">Estrella licenses the ARTEMIS platform from its parent, Eureka Therapeutics. The 10-K describes it as an Antibody-T Cell Receptor (AbTCR) design intended to address limits of conventional CAR T-cell therapy, such as toxicity and exhaustion. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 1</a></p>
+    </header>
+    <div class="sci-body">
+      <figure class="mech reveal" style="--d:.05s">
+        <svg class="mech-svg" viewBox="0 0 640 400" role="img" aria-labelledby="ms-t ms-d" xmlns="http://www.w3.org/2000/svg"><title id="ms-t">Molecular schematic of the ARTEMIS receptors on a T cell binding CD19</title><desc id="ms-d">A cancer cell membrane at the top carries two CD19 proteins. A T cell membrane below carries an AbTCR flanked by CD3 complex proteins, and a separate co-stimulatory molecule. Each receptor binds a CD19 protein; a signal arrow runs down from each into the T cell. Numbered markers one to four match the list beside the figure. A schematic, not to scale.</desc><g class="e-lipid e-lipid-b"><circle cx="14" cy="78" r="3.4"/><circle cx="14" cy="94" r="3.4"/><circle cx="29" cy="78" r="3.4"/><circle cx="29" cy="94" r="3.4"/><circle cx="44" cy="78" r="3.4"/><circle cx="44" cy="94" r="3.4"/><circle cx="59" cy="78" r="3.4"/><circle cx="59" cy="94" r="3.4"/><circle cx="74" cy="78" r="3.4"/><circle cx="74" cy="94" r="3.4"/><circle cx="89" cy="78" r="3.4"/><circle cx="89" cy="94" r="3.4"/><circle cx="104" cy="78" r="3.4"/><circle cx="104" cy="94" r="3.4"/><circle cx="119" cy="78" r="3.4"/><circle cx="119" cy="94" r="3.4"/><circle cx="134" cy="78" r="3.4"/><circle cx="134" cy="94" r="3.4"/><circle cx="149" cy="78" r="3.4"/><circle cx="149" cy="94" r="3.4"/><circle cx="164" cy="78" r="3.4"/><circle cx="164" cy="94" r="3.4"/><circle cx="179" cy="78" r="3.4"/><circle cx="179" cy="94" r="3.4"/><circle cx="194" cy="78" r="3.4"/><circle cx="194" cy="94" r="3.4"/><circle cx="209" cy="78" r="3.4"/><circle cx="209" cy="94" r="3.4"/><circle cx="224" cy="78" r="3.4"/><circle cx="224" cy="94" r="3.4"/><circle cx="239" cy="78" r="3.4"/><circle cx="239" cy="94" r="3.4"/><circle cx="254" cy="78" r="3.4"/><circle cx="254" cy="94" r="3.4"/><circle cx="269" cy="78" r="3.4"/><circle cx="269" cy="94" r="3.4"/><circle cx="284" cy="78" r="3.4"/><circle cx="284" cy="94" r="3.4"/><circle cx="299" cy="78" r="3.4"/><circle cx="299" cy="94" r="3.4"/><circle cx="314" cy="78" r="3.4"/><circle cx="314" cy="94" r="3.4"/><circle cx="329" cy="78" r="3.4"/><circle cx="329" cy="94" r="3.4"/><circle cx="344" cy="78" r="3.4"/><circle cx="344" cy="94" r="3.4"/><circle cx="359" cy="78" r="3.4"/><circle cx="359" cy="94" r="3.4"/><circle cx="374" cy="78" r="3.4"/><circle cx="374" cy="94" r="3.4"/><circle cx="389" cy="78" r="3.4"/><circle cx="389" cy="94" r="3.4"/><circle cx="404" cy="78" r="3.4"/><circle cx="404" cy="94" r="3.4"/><circle cx="419" cy="78" r="3.4"/><circle cx="419" cy="94" r="3.4"/><circle cx="434" cy="78" r="3.4"/><circle cx="434" cy="94" r="3.4"/><circle cx="449" cy="78" r="3.4"/><circle cx="449" cy="94" r="3.4"/><circle cx="464" cy="78" r="3.4"/><circle cx="464" cy="94" r="3.4"/><circle cx="479" cy="78" r="3.4"/><circle cx="479" cy="94" r="3.4"/><circle cx="494" cy="78" r="3.4"/><circle cx="494" cy="94" r="3.4"/><circle cx="509" cy="78" r="3.4"/><circle cx="509" cy="94" r="3.4"/><circle cx="524" cy="78" r="3.4"/><circle cx="524" cy="94" r="3.4"/><circle cx="539" cy="78" r="3.4"/><circle cx="539" cy="94" r="3.4"/><circle cx="554" cy="78" r="3.4"/><circle cx="554" cy="94" r="3.4"/><circle cx="569" cy="78" r="3.4"/><circle cx="569" cy="94" r="3.4"/><circle cx="584" cy="78" r="3.4"/><circle cx="584" cy="94" r="3.4"/><circle cx="599" cy="78" r="3.4"/><circle cx="599" cy="94" r="3.4"/><circle cx="614" cy="78" r="3.4"/><circle cx="614" cy="94" r="3.4"/><circle cx="629" cy="78" r="3.4"/><circle cx="629" cy="94" r="3.4"/></g><g class="e-lipid e-lipid-t"><circle cx="14" cy="292" r="3.4"/><circle cx="14" cy="308" r="3.4"/><circle cx="29" cy="292" r="3.4"/><circle cx="29" cy="308" r="3.4"/><circle cx="44" cy="292" r="3.4"/><circle cx="44" cy="308" r="3.4"/><circle cx="59" cy="292" r="3.4"/><circle cx="59" cy="308" r="3.4"/><circle cx="74" cy="292" r="3.4"/><circle cx="74" cy="308" r="3.4"/><circle cx="89" cy="292" r="3.4"/><circle cx="89" cy="308" r="3.4"/><circle cx="104" cy="292" r="3.4"/><circle cx="104" cy="308" r="3.4"/><circle cx="119" cy="292" r="3.4"/><circle cx="119" cy="308" r="3.4"/><circle cx="134" cy="292" r="3.4"/><circle cx="134" cy="308" r="3.4"/><circle cx="149" cy="292" r="3.4"/><circle cx="149" cy="308" r="3.4"/><circle cx="164" cy="292" r="3.4"/><circle cx="164" cy="308" r="3.4"/><circle cx="179" cy="292" r="3.4"/><circle cx="179" cy="308" r="3.4"/><circle cx="194" cy="292" r="3.4"/><circle cx="194" cy="308" r="3.4"/><circle cx="209" cy="292" r="3.4"/><circle cx="209" cy="308" r="3.4"/><circle cx="224" cy="292" r="3.4"/><circle cx="224" cy="308" r="3.4"/><circle cx="239" cy="292" r="3.4"/><circle cx="239" cy="308" r="3.4"/><circle cx="254" cy="292" r="3.4"/><circle cx="254" cy="308" r="3.4"/><circle cx="269" cy="292" r="3.4"/><circle cx="269" cy="308" r="3.4"/><circle cx="284" cy="292" r="3.4"/><circle cx="284" cy="308" r="3.4"/><circle cx="299" cy="292" r="3.4"/><circle cx="299" cy="308" r="3.4"/><circle cx="314" cy="292" r="3.4"/><circle cx="314" cy="308" r="3.4"/><circle cx="329" cy="292" r="3.4"/><circle cx="329" cy="308" r="3.4"/><circle cx="344" cy="292" r="3.4"/><circle cx="344" cy="308" r="3.4"/><circle cx="359" cy="292" r="3.4"/><circle cx="359" cy="308" r="3.4"/><circle cx="374" cy="292" r="3.4"/><circle cx="374" cy="308" r="3.4"/><circle cx="389" cy="292" r="3.4"/><circle cx="389" cy="308" r="3.4"/><circle cx="404" cy="292" r="3.4"/><circle cx="404" cy="308" r="3.4"/><circle cx="419" cy="292" r="3.4"/><circle cx="419" cy="308" r="3.4"/><circle cx="434" cy="292" r="3.4"/><circle cx="434" cy="308" r="3.4"/><circle cx="449" cy="292" r="3.4"/><circle cx="449" cy="308" r="3.4"/><circle cx="464" cy="292" r="3.4"/><circle cx="464" cy="308" r="3.4"/><circle cx="479" cy="292" r="3.4"/><circle cx="479" cy="308" r="3.4"/><circle cx="494" cy="292" r="3.4"/><circle cx="494" cy="308" r="3.4"/><circle cx="509" cy="292" r="3.4"/><circle cx="509" cy="308" r="3.4"/><circle cx="524" cy="292" r="3.4"/><circle cx="524" cy="308" r="3.4"/><circle cx="539" cy="292" r="3.4"/><circle cx="539" cy="308" r="3.4"/><circle cx="554" cy="292" r="3.4"/><circle cx="554" cy="308" r="3.4"/><circle cx="569" cy="292" r="3.4"/><circle cx="569" cy="308" r="3.4"/><circle cx="584" cy="292" r="3.4"/><circle cx="584" cy="308" r="3.4"/><circle cx="599" cy="292" r="3.4"/><circle cx="599" cy="308" r="3.4"/><circle cx="614" cy="292" r="3.4"/><circle cx="614" cy="308" r="3.4"/><circle cx="629" cy="292" r="3.4"/><circle cx="629" cy="308" r="3.4"/></g><g class="m-cd19"><path d="M238,97 L238,142"/><circle cx="238" cy="154" r="12"/><path d="M438,97 L438,142"/><circle cx="438" cy="154" r="12"/></g><g class="m-abtcr"><path class="m-bind" d="M238,224 L238,200 M238,200 L228,166 M238,200 L248,166"/><path class="m-eff" d="M232,224 L232,342 M244,224 L244,342"/><ellipse class="e-cd3 m-cd3" cx="204" cy="298" rx="11" ry="30"/><ellipse class="e-cd3 m-cd3" cx="272" cy="298" rx="11" ry="30"/><ellipse class="e-cd3 m-cd3 m-cd3-b" cx="182" cy="330" rx="12" ry="9"/><ellipse class="e-cd3 m-cd3 m-cd3-b" cx="294" cy="330" rx="12" ry="9"/></g><g class="m-costim"><path d="M438,286 L438,189"/><path class="e-costim-head" d="M438,167 L449,178 L438,189 L427,178 Z"/><path d="M438,312 L438,330"/><rect class="m-cd" x="422" y="330" width="32" height="16" rx="3"/></g><path class="m-sig motif-sig" pathLength="1" d="M238,366 L238,388"/><path class="m-sig motif-sig" pathLength="1" d="M438,354 L438,388"/><path class="m-sig-head" d="M232,386 L238,396 L244,386"/><path class="m-sig-head" d="M432,386 L438,396 L444,386"/><text class="m-lab" x="14" y="62">Cancer cell</text><text class="m-lab" x="626" y="278" text-anchor="end">T cell</text><text class="m-lab" x="14" y="392">Inside the T cell</text><g class="m-pin" transform="translate(276 152)"><circle r="13"/><text y="4.6" text-anchor="middle">1</text></g><g class="m-pin" transform="translate(202 190)"><circle r="13"/><text y="4.6" text-anchor="middle">2</text></g><g class="m-pin" transform="translate(172 258)"><circle r="13"/><text y="4.6" text-anchor="middle">3</text></g><g class="m-pin" transform="translate(478 178)"><circle r="13"/><text y="4.6" text-anchor="middle">4</text></g></svg>
+        <figcaption><b>Figure 1.</b> Schematic after the 10-K&rsquo;s description of how ARTEMIS receptors engage CD19. The 10-K writes the detail for EB104 and says EB104 is built in a manner similar to EB103. Not to scale; the shapes are illustrative. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 1</a></figcaption>
+      </figure>
+      <ol class="mech-steps reveal" style="--d:.1s">
+        <li><span class="n" aria-hidden="true">1</span><div><h3>The target is CD19</h3><p>EB103 is a CD19-directed therapy. The 10-K says CD19, like CD22, is expressed on the surface of most B-cell malignancies; the receptors are built to recognize and bind it. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 1</a></p></div></li>
+        <li><span class="n" aria-hidden="true">2</span><div><h3>The AbTCR binds it</h3><p>The AbTCR is the first of two receptors the engineered T cell carries. Its effector domain is made of &gamma;&delta; T-cell receptor chains. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 1</a></p></div></li>
+        <li><span class="n" aria-hidden="true">3</span><div><h3>The T cell&rsquo;s own CD3 answers</h3><p>Those chains associate with the T cell&rsquo;s endogenous CD3 complex. When the AbTCR binds its target, signalling through the AbTCR/CD3 complex begins and activates the T cell. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 1</a></p></div></li>
+        <li><span class="n" aria-hidden="true">4</span><div><h3>A second, separate signal</h3><p>A co-stimulatory molecule on the same T cell also binds CD19 and generates a second &ldquo;enhancement&rdquo; signal. The company calls it a differentiating feature that this molecule is a separate protein, not linked to the activation domain. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 1</a></p></div></li>
+      </ol>
+    </div>
+    <div class="claims reveal" style="--d:.08s">
+      <h3 class="claims-h">What the company says is different, and what it has shown so far</h3>
+      <p class="claims-lede">These are the 10-K&rsquo;s statements of belief. They rest on Eureka&rsquo;s internal and published studies (the Phase I results are reported separately, in the next section); the 10-K&rsquo;s own risk factors say clinical trials have uncertain outcomes and that preliminary data may change. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 1</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 1A</a></p>
+      <ul class="claims-list">
+        <li><b>Lower inflammatory signalling.</b> In comparisons with market-standard CAR-T constructs the company says ARTEMIS T cells showed comparable or better antitumor potency with significantly lower release of inflammatory cytokines such as IL-6, which drive cytokine release syndrome. It adds that it believes this has the potential to allow administration outside dedicated cancer centers.</li>
+        <li><b>Function at low antigen density.</b> Citing 2025 National Cancer Institute studies on a different target (GPC2, in solid tumors), the company says ARTEMIS T cells kept working at antigen levels below those that activate conventional CAR-T cells.</li>
+        <li><b>More stem-like memory cells, fewer exhaustion markers.</b> Preclinical data, the company says, point to expansion of stem-like memory T cells and fewer exhaustion markers than standard CAR-T constructs; it adds that this subset has been reported to be associated with long-term persistence and durability of clinical response.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- ============ 04 TRIAL (white): traction. The Phase I data in the filing's words with the filing's own caveat, then the signature plate: the statement of work's 20-patient assumption as twenty stars, beside the same schedule drawn to scale against cash. ============ -->
+<section id="trial" class="sec-white ed" aria-labelledby="tri-h">
+  <div class="wrap ed-grid">
+    <header class="ed-head reveal">
+      <p class="eyebrow"><svg class="mk motif-mark" aria-hidden="true" focusable="false"><use href="#e-star"/></svg>The trial</p>
+      <h2 id="tri-h">STARLIGHT-1: nine Phase I patients, and the schedule that pays for the trial</h2>
+      <p class="ed-note">An open-label, dose-escalation, multi-center Phase I/II trial of EB103 in adults with relapsed or refractory B-cell non-Hodgkin lymphoma (NCT06343311). The FDA cleared the IND on Mar&nbsp;2, 2023; the first patient was dosed in July 2024. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 1</a></p>
+    </header>
+    <div class="phase-wrap reveal" style="--d:.05s"><dl class="phase">
+      <div><dt>Who was treated</dt><dd>Nine patients in two dose levels: three at 2.5 million and six at 5 million receptor-positive T cells per kilogram. The median was three prior lines of therapy; the company counts about 80% as high-risk, 33% had a prior autologous stem cell transplant and 89% had two or more prior regimens.</dd></div>
+      <div><dt>Safety, as reported</dt><dd>No treatment-related serious adverse events. Cytokine release syndrome occurred in all treated patients, always Grade 1 or 2, with no Grade 3 or higher at either dose. A majority had transient low-grade ICANS, with a median duration of two days.</dd></div>
+      <div><dt>Response, as reported</dt><dd>At the higher dose, 5 of 5 evaluable patients (100%) had a complete response at Month 1. One more patient in that group had a Grade 5 (fatal) sepsis event on Day 18, which the investigator judged unrelated to EB103; that patient was not evaluable for response. All evaluable patients remained in remission at the Jan&nbsp;28, 2026 data cutoff. The 10-K reports a response rate only for the higher-dose group, and cautions that these results are based on a small number of patients and limited follow-up and may not be predictive of results in larger populations, additional cohorts or later-stage trials.</dd></div>
+      <div><dt>What came next</dt><dd>An independent Data Safety Monitoring Board reviewed the Phase I safety data in December 2025 and recommended moving to Phase II at the recommended dose. Phase II dosing began in January 2026 &ldquo;to confirm the Phase I results,&rdquo; and the 10-K (March 2026) says the company anticipates completing the Phase II portion in the first half of 2027. The 10-K does not tie that date to funding; separately, management says it will not have sufficient funds to meet its working capital requirements and debt obligations as they become due, starting from one year from the date of the 10-Q (see Disclosures).</dd></div>
+    </dl>
+    <p class="phase-src"><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 1</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 1A</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, Note 1</a></p></div>
+
+    <div class="plate-wrap reveal" style="--d:.06s">
+      <h3 class="plate-h">Twenty patients, priced in advance</h3>
+      <p class="plate-lede">The statement of work with Eureka prices STARLIGHT-1 on an assumption of 20 patients dosed at one site: $3.5M for start-up, about $1.375M for each patient dosed ($27.5M for 20) and $2.0M at close-out, which is $33.0M before pass-through costs, plus $0.5M for a second site, which was activated in April 2025. The filings do not say the trial stops at 20 patients, and they do not say which patients&rsquo; fees have been paid. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, Note 5</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 1</a></p>
+      <div class="stars" role="img" aria-label="Twenty stars, one for each patient in the statement of work&#8217;s 20-patient assumption: 9 lit for Phase I, 2 for Phase II dosed by June 30, 2026, 1 for July 2026, and 8 unlit."><ol class="stars-row" aria-hidden="true"><li class="s s-p1 motif-s" style="--i:0"><svg aria-hidden="true" focusable="false"><use href="#e-star"/></svg></li><li class="s s-p1 motif-s" style="--i:1"><svg aria-hidden="true" focusable="false"><use href="#e-star"/></svg></li><li class="s s-p1 motif-s" style="--i:2"><svg aria-hidden="true" focusable="false"><use href="#e-star"/></svg></li><li class="s s-p1 motif-s" style="--i:3"><svg aria-hidden="true" focusable="false"><use href="#e-star"/></svg></li><li class="s s-p1 motif-s" style="--i:4"><svg aria-hidden="true" focusable="false"><use href="#e-star"/></svg></li><li class="s s-p1 motif-s" style="--i:5"><svg aria-hidden="true" focusable="false"><use href="#e-star"/></svg></li><li class="s s-p1 motif-s" style="--i:6"><svg aria-hidden="true" focusable="false"><use href="#e-star"/></svg></li><li class="s s-p1 motif-s" style="--i:7"><svg aria-hidden="true" focusable="false"><use href="#e-star"/></svg></li><li class="s s-p1 motif-s" style="--i:8"><svg aria-hidden="true" focusable="false"><use href="#e-star"/></svg></li><li class="s s-p2 motif-s" style="--i:9"><svg aria-hidden="true" focusable="false"><use href="#e-star"/></svg></li><li class="s s-p2 motif-s" style="--i:10"><svg aria-hidden="true" focusable="false"><use href="#e-star"/></svg></li><li class="s s-jul motif-s" style="--i:11"><svg aria-hidden="true" focusable="false"><use href="#e-star"/></svg></li><li class="s s-off motif-s" style="--i:12"><svg aria-hidden="true" focusable="false"><use href="#e-star"/></svg></li><li class="s s-off motif-s" style="--i:13"><svg aria-hidden="true" focusable="false"><use href="#e-star"/></svg></li><li class="s s-off motif-s" style="--i:14"><svg aria-hidden="true" focusable="false"><use href="#e-star"/></svg></li><li class="s s-off motif-s" style="--i:15"><svg aria-hidden="true" focusable="false"><use href="#e-star"/></svg></li><li class="s s-off motif-s" style="--i:16"><svg aria-hidden="true" focusable="false"><use href="#e-star"/></svg></li><li class="s s-off motif-s" style="--i:17"><svg aria-hidden="true" focusable="false"><use href="#e-star"/></svg></li><li class="s s-off motif-s" style="--i:18"><svg aria-hidden="true" focusable="false"><use href="#e-star"/></svg></li><li class="s s-off motif-s" style="--i:19"><svg aria-hidden="true" focusable="false"><use href="#e-star"/></svg></li></ol><ul class="stars-key"><li><i class="sw sw-p1" aria-hidden="true"></i>Phase I, 9 patients</li><li><i class="sw sw-p2" aria-hidden="true"></i>Phase II by Jun&nbsp;30, 2026, 2 patients</li><li><i class="sw sw-jul" aria-hidden="true"></i>July 2026, 1 patient</li><li><i class="sw sw-off" aria-hidden="true"></i>Assumed in the schedule, not yet dosed, 8</li></ul></div>
+      <div class="sow"><div class="sow-row"><span class="sow-l">Statement of work, $33.5M in all</span><span class="sow-track"><span class="sow-seg sow-paid motif-grow" style="--w:32.54%"></span><span class="sow-seg sow-acc motif-grow" style="--w:24.79%"></span><span class="sow-seg sow-rest motif-grow" style="--w:42.67%"></span></span></div><div class="sow-row sow-cashrow"><span class="sow-l">Cash, Jun&nbsp;30, 2026</span><span class="sow-track"><span class="sow-cash motif-grow" style="--w:0.44%"></span><span class="sow-cashv">$0.15M</span></span></div><ul class="sow-key"><li><i class="sw sw-paid" aria-hidden="true"></i><b>$10.9M</b> paid to Eureka: $3.5M start-up, $6.9M dosing, $0.5M second site</li><li><i class="sw sw-acc" aria-hidden="true"></i><b>$8.3M</b> accrued and unpaid at Jun&nbsp;30, 2026 (all but $54,999 owed to Eureka)</li><li><i class="sw sw-rest" aria-hidden="true"></i><b>$14.3M</b> not yet incurred (calculated here: $33.5M less the two filed amounts)</li></ul><p class="sow-cap">Drawn to scale. The 10-Q says about $19.1M had been incurred cumulatively; the paid and accrued amounts it states separately add to $19.2M, and this plate reports each as filed. The gap is consistent with the $54,999 consulting accrual inside the accrued related-party liability (owed to another related party, not Eureka; 10-Q Note 5) and with the $6.9M paid for dosing being rounded (five patients at $1.375M is $6.875M); the filings do not reconcile it themselves.</p><p class="sow-cap">The remainder is what is still to come if 20 patients are dosed. The second site was activated in April 2025 and its $0.5M fee has been paid. The remainder is payable only as milestones are achieved: the amended statement of work says that if the company terminates or suspends it owes only milestones already achieved, pass-through costs and third-party commitments. Invoices are due in 30 days, Eureka may charge 1.5% a month on undisputed amounts unpaid after that, and a $1.5M deposit is applied to the final invoice. Pass-through costs are on top and the filings do not quantify them. One more patient was dosed in July 2026, adding $1.375M to the accrual after the balance-sheet date.</p></div>
+    </div>
+  </div>
+</section>
+<!-- ============ 05 PIPELINE + MARKET (tint): overview + markets + problem framing. The pipeline is rebuilt natively from the 10-K (the company's own chart is a raster); market figures are the company's, attributed, and no growth bar or TAM is drawn from them. ============ -->
+<section id="pipeline" class="sec-tint ed ed-flip" aria-labelledby="pip-h">
+  <div class="wrap ed-grid">
+    <header class="ed-head reveal">
+      <p class="eyebrow"><svg class="mk motif-mark" aria-hidden="true" focusable="false"><use href="#e-star"/></svg>The pipeline</p>
+      <h2 id="pip-h">One program in the clinic, three that are not</h2>
+      <p class="ed-note">All four programs use ARTEMIS receptors licensed from Eureka for CD19 and CD22 outside Greater China and the ASEAN countries. Stages are the 10-K&rsquo;s, as of its filing; the stage bars are drawn from its text descriptions, not from its raster pipeline chart. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 1</a></p>
+    </header>
+    <div class="pip-body">
+      <div class="pip reveal"><h3 class="pip-h">Programs and stages</h3><ol class="pip-list"><li class="pip-row"><span class="pip-id">EB103</span><span class="pip-m"><b>CD19</b>relapsed or refractory B-cell non-Hodgkin lymphoma</span><span class="pip-track"><span class="pt pt-done"><span class="pt-n">Preclinical</span><span class="sr">: complete</span></span><span class="pt pt-done"><span class="pt-n">Phase I</span><span class="sr">: complete</span></span><span class="pt pt-now"><span class="pt-n">Phase II</span><span class="sr">: in progress</span></span></span><span class="pip-st">Phase I/II (STARLIGHT-1): Phase II expansion under way</span></li><li class="pip-row"><span class="pip-id">EB104</span><span class="pip-m"><b>CD19 and CD22</b>relapsed or refractory and high-risk B-cell malignancies</span><span class="pip-track"><span class="pt pt-now"><span class="pt-n">Preclinical</span><span class="sr">: in progress</span></span><span class="pt pt-off"><span class="pt-n">Phase I</span><span class="sr">: not reached</span></span><span class="pt pt-off"><span class="pt-n">Phase II</span><span class="sr">: not reached</span></span></span><span class="pip-st">IND filing being compiled; no Phase I until the FDA approves an IND</span></li><li class="pip-row"><span class="pip-id">EB103 with CF33-CD19t</span><span class="pip-m"><b>CD19 marked onto solid tumor cells by an oncolytic virus</b>solid tumors</span><span class="pip-track"><span class="pt pt-off"><span class="pt-n">Preclinical</span><span class="sr">: not reached</span></span><span class="pt pt-off"><span class="pt-n">Phase I</span><span class="sr">: not reached</span></span><span class="pt pt-off"><span class="pt-n">Phase II</span><span class="sr">: not reached</span></span></span><span class="pip-st">concept; Imugene collaboration research plan concluded 2023-08-30; no IND timetable</span></li><li class="pip-row"><span class="pip-id">EB201</span><span class="pip-m"><b>CD19</b>systemic lupus erythematosus</span><span class="pip-track"><span class="pt pt-now"><span class="pt-n">Preclinical</span><span class="sr">: in progress</span></span><span class="pt pt-off"><span class="pt-n">Phase I</span><span class="sr">: not reached</span></span><span class="pt pt-off"><span class="pt-n">Phase II</span><span class="sr">: not reached</span></span></span><span class="pip-st">preclinical</span></li></ol></div>
+      <div class="mkt reveal" style="--d:.06s">
+        <h3 class="mkt-h">The problem and the market, as the company states them</h3>
+        <ul class="mkt-list">
+          <li><span class="mkt-v">80,350</span><span class="mkt-k">new cases of non-Hodgkin lymphoma estimated in the United States in 2025 by the National Cancer Institute; the 10-K adds that B-cell lymphomas make up about 85% of them, and cites the NCI for 66,890 new cases of leukemia. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 1</a></span></li>
+          <li><span class="mkt-v">About 20%</span><span class="mkt-k">of eligible patients, the company says, are treated by current CAR-T therapies, which it attributes to their toxicity and other limits. The 10-K puts the average cost of a standard CAR-T treatment plan at approximately $400,000. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 1</a></span></li>
+          <li><span class="mkt-v">$5.82B</span><span class="mkt-k">estimated global CAR T-cell therapy market in 2025, projected to reach $22.36B by 2033, according to Grand View Research as cited in the 10-K. This is a third-party estimate of an existing market, not a forecast of Estrella&rsquo;s revenue; the company has none. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 1</a></span></li>
+          <li><span class="mkt-v">About 90%</span><span class="mkt-k">of cancers are solid tumors, the company says, where T-cell therapy has so far had limited success; its solid-tumor idea is a concept without a timetable (see the table above). <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 1</a></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============ 06 FINANCIALS (white): pre-revenue, so cash, liabilities, burn and share count rather than a revenue series. Every figure is generated from FACTS.json by build_body_estrella.py. ============ -->
+<section id="financials" class="sec-white ed fin-sec" aria-labelledby="fin-h">
+  <div class="wrap">
+    <header class="fin-head reveal">
+      <p class="eyebrow"><svg class="mk motif-mark" aria-hidden="true" focusable="false"><use href="#e-star"/></svg>The financials</p>
+      <h2 id="fin-h">No revenue; cash of $0.15M against $9.3M of current liabilities</h2>
+      <p class="ed-note">Estrella has not generated revenue from product sales. Figures are in US dollars as filed; Jun&nbsp;30, 2026 and the six-month periods are unaudited. The statements shown are Estrella&rsquo;s own (the company was formed in March 2022); the registrant was the blank-check company TradeUP Acquisition Corp. until the business combination on Sep&nbsp;29, 2023, and earlier periods are not shown here. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 7</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, Note 1</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, MD&amp;A</a></p>
+    </header>
+
+    <div class="fin-grid">
+      <figure class="plate reveal" style="--d:.04s">
+        <h3 class="plate-h">Cash against what is owed, to scale</h3>
+        <div class="pb"><div class="pb-rows"><div class="pb-row pb-cash"><span class="pb-l">Cash, Dec&nbsp;31, 2024</span><span class="pb-track"><span class="pb-bar motif-grow" style="--w:6.55%"></span></span><span class="pb-v">$0.92M</span></div><div class="pb-row pb-cash"><span class="pb-l">Cash, Dec&nbsp;31, 2025</span><span class="pb-track"><span class="pb-bar motif-grow" style="--w:9.89%"></span></span><span class="pb-v">$1.38M</span></div><div class="pb-row pb-cash"><span class="pb-l">Cash, Jun&nbsp;30, 2026</span><span class="pb-track"><span class="pb-bar motif-grow" style="--w:1.05%"></span></span><span class="pb-v">$0.15M</span></div><div class="pb-row pb-liab"><span class="pb-l">Current liabilities, Dec&nbsp;31, 2025</span><span class="pb-track"><span class="pb-bar motif-grow" style="--w:96.74%"></span></span><span class="pb-v">$13.5M</span></div><div class="pb-row pb-liab"><span class="pb-l">Current liabilities, Jun&nbsp;30, 2026</span><span class="pb-track"><span class="pb-bar motif-grow" style="--w:66.11%"></span></span><span class="pb-v">$9.3M</span></div><div class="pb-row pb-sub"><span class="pb-l">of which accrued to related parties, mostly Eureka, Jun&nbsp;30, 2026</span><span class="pb-track"><span class="pb-bar motif-grow" style="--w:59.32%"></span></span><span class="pb-v">$8.3M</span></div></div><div class="pb-axis" aria-hidden="true"><span class="pb-axl"></span><span class="pb-axt"><span style="--x:0.00%">$0</span><span style="--x:35.71%">$5M</span><span style="--x:71.43%">$10M</span></span><span class="pb-axv"></span></div></div>
+        <figcaption>Current liabilities at Jun&nbsp;30, 2026 include $8.3M accrued to related parties: $8.25M for the dosing milestones Eureka has achieved under the statement of work and $54,999 for consulting fees owed to another related party. They also include $0.7M of derivative liabilities for the true-up shares; the 10-Q says the part tied to the 463,636 shares issued on Jul&nbsp;1, 2026 was reclassified to equity then. All of the company&rsquo;s liabilities are current. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, balance sheet</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, balance sheet</a></figcaption>
+      </figure>
+      <figure class="plate reveal" style="--d:.08s">
+        <h3 class="plate-h">Where operating expense goes</h3>
+        <div class="ps"><div class="ps-row"><span class="ps-l">FY2025 (year to Dec&nbsp;31, 2025)</span><span class="ps-track"><span class="ps-seg ps-rel motif-grow" style="--w:72.32%"></span><span class="ps-seg ps-oth motif-grow" style="--w:0.88%"></span><span class="ps-seg ps-ga motif-grow" style="--w:20.10%"></span></span><span class="ps-v">$13.1M<small>78% to Eureka</small></span></div><div class="ps-row"><span class="ps-l">First half 2025</span><span class="ps-track"><span class="ps-seg ps-rel motif-grow" style="--w:42.86%"></span><span class="ps-seg ps-oth motif-grow" style="--w:0.50%"></span><span class="ps-seg ps-ga motif-grow" style="--w:11.27%"></span></span><span class="ps-v">$7.6M<small>78% to Eureka</small></span></div><div class="ps-row"><span class="ps-l">First half 2026</span><span class="ps-track"><span class="ps-seg ps-rel motif-grow" style="--w:19.64%"></span><span class="ps-seg ps-oth motif-grow" style="--w:0.36%"></span><span class="ps-seg ps-ga motif-grow" style="--w:10.48%"></span></span><span class="ps-v">$4.3M<small>64% to Eureka</small></span></div><ul class="ps-key"><li><i class="sw sw-rel" aria-hidden="true"></i>Research and development charged by Eureka</li><li><i class="sw sw-oth" aria-hidden="true"></i>Other research and development</li><li><i class="sw sw-ga" aria-hidden="true"></i>General and administrative</li></ul></div>
+        <figcaption>Research and development charged by a related party, Eureka, as a share of total operating expenses. The shares are calculated from the filed figures. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 8</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, Note 5</a></figcaption>
+      </figure>
+    </div>
+
+    <div class="tbl reveal" style="--d:.04s"><div class="table-scroll"><table class="fin stm"><caption>Statements of operations and operating cash flow, US dollars as filed, no revenue in any period</caption><thead><tr><th scope="col">&nbsp;</th><th scope="col" class="num">FY2025<small>year ended Dec&nbsp;31, 2025</small></th><th scope="col" class="num">Transition<small>six months ended Dec&nbsp;31, 2024</small></th><th scope="col" class="num">H1 2026<small>six months ended Jun&nbsp;30, 2026, unaudited</small></th><th scope="col" class="num">H1 2025<small>six months ended Jun&nbsp;30, 2025, unaudited</small></th></tr></thead><tbody><tr class=""><th scope="row">Research and development</th><td class="num" data-label="FY2025">10,248,545</td><td class="num" data-label="Transition">2,858,566</td><td class="num" data-label="H1 2026">2,800,507</td><td class="num" data-label="H1 2025">6,070,489</td></tr><tr class="sub"><th scope="row">&nbsp;&nbsp;of which charged by a related party (Eureka)</th><td class="num" data-label="FY2025">10,125,000</td><td class="num" data-label="Transition">2,801,435</td><td class="num" data-label="H1 2026">2,750,000</td><td class="num" data-label="H1 2025">6,000,000</td></tr><tr class=""><th scope="row">General and administrative</th><td class="num" data-label="FY2025">2,814,129</td><td class="num" data-label="Transition">1,568,398</td><td class="num" data-label="H1 2026">1,467,177</td><td class="num" data-label="H1 2025">1,577,837</td></tr><tr class="tot"><th scope="row">Total operating expenses</th><td class="num" data-label="FY2025">13,062,674</td><td class="num" data-label="Transition">4,426,964</td><td class="num" data-label="H1 2026">4,267,684</td><td class="num" data-label="H1 2025">7,648,326</td></tr><tr class="tot"><th scope="row">Loss from operations</th><td class="num" data-label="FY2025">(13,062,674)</td><td class="num" data-label="Transition">(4,426,964)</td><td class="num" data-label="H1 2026">(4,267,684)</td><td class="num" data-label="H1 2025">(7,648,326)</td></tr><tr class=""><th scope="row">Change in fair value of derivative liabilities</th><td class="num" data-label="FY2025">0</td><td class="num" data-label="Transition">0</td><td class="num" data-label="H1 2026">(330,719)</td><td class="num" data-label="H1 2025">0</td></tr><tr class=""><th scope="row">Income tax provision</th><td class="num" data-label="FY2025">(838)</td><td class="num" data-label="Transition">(63)</td><td class="num" data-label="H1 2026">0</td><td class="num" data-label="H1 2025">(863)</td></tr><tr class="tot"><th scope="row">Net loss</th><td class="num" data-label="FY2025">(13,063,512)</td><td class="num" data-label="Transition">(4,427,027)</td><td class="num" data-label="H1 2026">(4,598,403)</td><td class="num" data-label="H1 2025">(7,649,189)</td></tr><tr class=""><th scope="row">Net loss per share, basic and diluted ($)</th><td class="num" data-label="FY2025">(0.35)</td><td class="num" data-label="Transition">(0.12)</td><td class="num" data-label="H1 2026">(0.11)</td><td class="num" data-label="H1 2025">(0.21)</td></tr><tr class=""><th scope="row">Weighted-average shares outstanding</th><td class="num" data-label="FY2025">36,820,810</td><td class="num" data-label="Transition">36,515,688</td><td class="num" data-label="H1 2026">42,561,826</td><td class="num" data-label="H1 2025">36,176,878</td></tr><tr class=""><th scope="row">Net cash used in operating activities</th><td class="num" data-label="FY2025">(1,785,679)</td><td class="num" data-label="Transition">(3,113,526)</td><td class="num" data-label="H1 2026">(8,478,748)</td><td class="num" data-label="H1 2025">(880,860)</td></tr></tbody></table></div></div>
+    <p class="tbl-note reveal">Net cash used in operating activities in the first half of 2026 reflects a net decrease of about $4.6M in related-party liabilities (accrued liabilities and accounts payable), which the 10-Q says resulted mainly from settling milestone invoices previously due to Eureka. For FY2025, operating cash use of $1.8M is far below the net loss because, the 10-K says, accrued liabilities to Eureka rose by about $9.6M as service charges were incurred and not yet paid. The first half of 2026 also includes a $0.33M non-cash loss on the change in fair value of derivative liabilities; FY2025 general and administrative expense includes $38,189 for the change in fair value of the same derivative. FY2025 is the year ended Dec&nbsp;31, 2025; the company changed its fiscal year end from June&nbsp;30 to December&nbsp;31 in 2024, so the column to Dec&nbsp;31, 2024 covers a six-month transition period. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, MD&amp;A</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 8</a></p>
+
+    <div class="tbl reveal" style="--d:.04s"><div class="table-scroll"><table class="fin bal"><caption>Balance sheet, selected lines, US dollars as filed</caption><thead><tr><th scope="col">&nbsp;</th><th scope="col" class="num">Jun&nbsp;30, 2026<small>unaudited</small></th><th scope="col" class="num">Dec&nbsp;31, 2025<small>audited</small></th><th scope="col" class="num">Dec&nbsp;31, 2024<small>audited</small></th></tr></thead><tbody><tr class=""><th scope="row">Cash and cash equivalents</th><td class="num" data-label="Jun&nbsp;30, 2026">146,670</td><td class="num" data-label="Dec&nbsp;31, 2025">1,384,302</td><td class="num" data-label="Dec&nbsp;31, 2024">916,916</td></tr><tr class="tot"><th scope="row">Total assets</th><td class="num" data-label="Jun&nbsp;30, 2026">1,824,681</td><td class="num" data-label="Dec&nbsp;31, 2025">3,176,975</td><td class="num" data-label="Dec&nbsp;31, 2024">3,140,777</td></tr><tr class=""><th scope="row">Accrued liability, related parties (mostly Eureka)</th><td class="num" data-label="Jun&nbsp;30, 2026">8,304,999</td><td class="num" data-label="Dec&nbsp;31, 2025">12,393,333</td><td class="num" data-label="Dec&nbsp;31, 2024">2,786,667</td></tr><tr class=""><th scope="row">Derivative liabilities</th><td class="num" data-label="Jun&nbsp;30, 2026">687,224</td><td class="num" data-label="Dec&nbsp;31, 2025">356,505</td><td class="num" data-label="Dec&nbsp;31, 2024">0</td></tr><tr class="tot"><th scope="row">Total liabilities (all current)</th><td class="num" data-label="Jun&nbsp;30, 2026">9,256,014</td><td class="num" data-label="Dec&nbsp;31, 2025">13,543,033</td><td class="num" data-label="Dec&nbsp;31, 2024">2,997,046</td></tr><tr class=""><th scope="row">Accumulated deficit</th><td class="num" data-label="Jun&nbsp;30, 2026">(41,589,218)</td><td class="num" data-label="Dec&nbsp;31, 2025">(36,990,815)</td><td class="num" data-label="Dec&nbsp;31, 2024">(23,927,303)</td></tr><tr class="tot"><th scope="row">Total stockholders&rsquo; equity (deficit)</th><td class="num" data-label="Jun&nbsp;30, 2026">(7,431,333)</td><td class="num" data-label="Dec&nbsp;31, 2025">(10,366,058)</td><td class="num" data-label="Dec&nbsp;31, 2024">143,731</td></tr></tbody></table></div></div>
+
+    <div class="dil ed-grid">
+      <header class="ed-head reveal">
+        <h3 class="dil-h">Shares, warrants and the funding behind them</h3>
+        <p class="ed-note">The 10-Q lists 13,409,928 shares of potential common stock outstanding at Jun&nbsp;30, 2026, which is about 31% of the 43,034,228 shares then outstanding. The percentage is calculated from the filed figures. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, Note 2</a></p>
+      </header>
+      <div class="dil-body reveal" style="--d:.05s">
+        <div class="table-scroll"><table class="fin shr"><caption>Shares and potential shares, as filed</caption><thead><tr><th scope="col">Item</th><th scope="col" class="num">Number</th><th scope="col">Terms</th></tr></thead><tbody><tr><th scope="row">Shares outstanding</th><td class="num" data-label="Number">43,497,864</td><td class="terms" data-label="Terms">Aug&nbsp;11, 2026, from the 10-Q cover</td></tr><tr><th scope="row">Shares outstanding</th><td class="num" data-label="Number">43,034,228</td><td class="terms" data-label="Terms">Jun&nbsp;30, 2026: 43,549,509 issued less 515,281 held in treasury</td></tr><tr><th scope="row">True-up shares issued</th><td class="num" data-label="Number">463,636</td><td class="terms" data-label="Terms">Jul&nbsp;1, 2026, of a maximum of 735,857 under the 2025 purchase agreements; more are issuable if the price on the 12-month anniversary of each closing is below $1.50, up to 272,221 more (calculated)</td></tr><tr><th scope="row">Public warrants</th><td class="num" data-label="Number">2,214,993</td><td class="terms" data-label="Terms">Exercise price $11.50, expire Sep&nbsp;29, 2028</td></tr><tr><th scope="row">Common warrants, January 2026</th><td class="num" data-label="Number">7,594,935</td><td class="terms" data-label="Terms">Exercise price $1.39, expire Jan&nbsp;6, 2031; 17.5% of the Aug&nbsp;11 share count (calculated)</td></tr><tr><th scope="row">Pre-funded warrants, January 2026</th><td class="num" data-label="Number">1,000,000</td><td class="terms" data-label="Terms">Exercise price $0.00001; all exercised by Jun&nbsp;30, 2026 (631,000 in the first quarter, 369,000 in the second)</td></tr><tr><th scope="row">Stock options granted</th><td class="num" data-label="Number">3,600,000</td><td class="terms" data-label="Terms">As listed in the 10-Q anti-dilution table at Jun&nbsp;30, 2026; separately, 520,858 unvested shares under a consulting award were forfeited on Jul&nbsp;1, 2026 (10-Q Note 11)</td></tr><tr><th scope="row">Share price stated in the 10-Q</th><td class="num" data-label="Number">$0.722</td><td class="terms" data-label="Terms">Aug&nbsp;10, 2026, the only market price this page cites</td></tr></tbody></table></div>
+        <h3 class="dil-h2">How the company has been funded, per the 10-Q</h3>
+        <ol class="fund">
+          <li><span class="fund-d">Jun&nbsp;28, 2022</span><span class="fund-t">Series A Preferred Stock</span><span class="fund-v">$5.0M</span></li>
+          <li><span class="fund-d">Sep&nbsp;29, 2023</span><span class="fund-t">Business combination, net proceeds</span><span class="fund-v">about $20.1M</span></li>
+          <li><span class="fund-d">May to Sep, 2025</span><span class="fund-t">Securities purchase agreements, net proceeds</span><span class="fund-v">about $2.3M</span></li>
+          <li><span class="fund-d">Jan&nbsp;6, 2026</span><span class="fund-t">Registered direct offering, net proceeds</span><span class="fund-v">about $7.2M</span></li>
+        </ol>
+        <p class="fund-n">The 10-Q adds that the common stock purchase agreement with White Lion Capital LLC expired on Dec&nbsp;30, 2025 and is no longer a source of liquidity, and that holders are unlikely to exercise the public warrants at $11.50 when the price the 10-Q states was $0.722 on Aug&nbsp;10, 2026. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, MD&amp;A</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============ 07 DISCLOSURES (the gravest band: darkest stock, ledger ruling, heavier type; never louder). Filed words, plans beside their caveats. ============ -->
+<section id="disclosures" class="sec-dark sec-dark-2 ed ed-flip dis-sec" aria-labelledby="dis-h">
+  <div class="wrap ed-grid">
+    <header class="ed-head reveal">
+      <p class="eyebrow"><svg class="mk motif-mark" aria-hidden="true" focusable="false"><use href="#e-star"/></svg>Disclosures</p>
+      <h2 id="dis-h">What the company&rsquo;s own filings say about its position</h2>
+      <p class="ed-note">Drawn from the going-concern notes, the risk factors and the Nasdaq notices in the 10-K, the 10-Q and the 8-Ks. This is a selection, not the whole; the filings are the whole.</p>
+    </header>
+    <ol class="dis reveal" style="--d:.05s">
+      <li class="dis-i">
+        <span class="dis-n" aria-hidden="true">01</span>
+        <div class="dis-b">
+          <h3>Substantial doubt about continuing as a going concern</h3>
+          <p>The 10-Q for the quarter ended Jun&nbsp;30, 2026 says management has determined there is substantial doubt about the company&rsquo;s ability to continue as a going concern, citing four things: recurring losses (about $4.3M in the first half of 2026), an accumulated deficit of about $41.6M, cash of about $0.1M against current liabilities of about $9.3M including about $8.3M of accrued milestone obligations payable to Eureka, and net cash used in operations of about $8.5M. The auditor&rsquo;s report in the 10-K for 2025 carries a going-concern paragraph too. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, Note 1</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 8</a></p>
+          <blockquote>&ldquo;Management is of the opinion that we will not have sufficient funds to meet our working capital requirements and debt obligations as they become due starting from one year from the date of this report. If we are unable to obtain adequate financing or generate significant revenue, we may be required to curtail or cease our operations.&rdquo; <cite><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, MD&amp;A</a></cite></blockquote>
+          <p>The company says it plans to raise additional capital but that there is no assurance financing will be available on acceptable terms, or at all. The only facility the filings name, a common stock purchase agreement with White Lion Capital LLC, expired on Dec&nbsp;30, 2025 and is no longer a source of liquidity. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, MD&amp;A</a></p>
+        </div>
+      </li>
+      <li class="dis-i">
+        <span class="dis-n" aria-hidden="true">02</span>
+        <div class="dis-b">
+          <h3>Eureka is the company&rsquo;s licensor, supplier, service provider, creditor and controlling stockholder</h3>
+          <p>Eureka Therapeutics owned about 58.7% of the company&rsquo;s outstanding shares at Jun&nbsp;30, 2026 (66.6% at Dec&nbsp;31, 2025; the 10-Q attributes the decrease mainly to dilution from the January 2026 financing). The 10-K says Eureka holds more than 50% of the voting power, so the company is a &ldquo;controlled company&rdquo; under Nasdaq rules, and that this may limit other stockholders&rsquo; ability to influence corporate matters. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, Note 5</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 1A</a> Its summary of risk factors says the company is heavily dependent on Eureka for manufacturing (as sole supplier of clinical drug product), research and development support and information technology, and that termination or disruption of those services &ldquo;would severely impact our operations&rdquo;; Item 1A adds that if the arrangements end or are disrupted the company would not have an immediately available alternative source of supply. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Risk factor summary</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 1A</a></p>
+          <p>The company&rsquo;s chief executive officer, president and director, Dr. Liu, is also the chief executive officer and president of Eureka and a beneficial owner of more than 10% of its equity, and the 10-K says he therefore devotes less than full time to the company&rsquo;s business; it lists such positions and equity interests among actual or potential conflicts of interest. The auditor&rsquo;s report carries an emphasis-of-matter paragraph on significant transactions with, and supplier concentration in, two related parties. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 1A</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 8</a></p>
+          <p>The money runs the same way. ARTEMIS is licensed from Eureka ($1.0M paid; up to 5 development milestones of about $60.2M in all, 4 sales milestones totalling $225.0M, and royalties of a single-digit percentage of net sales), and the trial is run under the statement of work described above. At Jun&nbsp;30, 2026 the company had accrued about $8.3M to related parties, which the 10-Q describes as earned but not yet formally invoiced milestone payments owed to Eureka; $54,999 of that liability is a consulting accrual owed to another related party. The statement of work also lets Eureka invoice pass-through costs, which the filings do not quantify. Other related-party arrangements include a consulting agreement with a firm managed by director Hong Zhang (terminated effective Jul&nbsp;1, 2026; $109,998 of expense in the first half of 2026, and 520,858 unvested shares forfeited) and a $2,000-a-month office sublease from Eureka, renewed to Dec&nbsp;31, 2026. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 1</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, Note 5</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, Note 11</a></p>
+        </div>
+      </li>
+      <li class="dis-i dis-nq">
+        <span class="dis-n" aria-hidden="true">03</span>
+        <div class="dis-b">
+          <h3>Nasdaq listing since January 2026: one notice cured, two open</h3>
+          <ul class="nq">
+            <li><span class="nq-r">Rule 5620(a)<small>annual meeting</small></span><span class="nq-d">Notice Jan&nbsp;7, 2026</span><span class="nq-s">Meeting held Jun&nbsp;29, 2026; the company says compliance was regained. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026003998/ea027282201-8k_estrellaimmu.htm" target="_blank" rel="noopener">8-K, Jan&nbsp;13, 2026</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026073847/ea029661701-8k_estrella.htm" target="_blank" rel="noopener">8-K, Jun&nbsp;30, 2026</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, Note 1</a></span></li>
+            <li><span class="nq-r">Rule 5550(a)(2)<small>$1.00 minimum bid</small></span><span class="nq-d">Notice Aug&nbsp;17, 2026</span><span class="nq-s">Closing bid below $1.00 for 30 business days. Compliance period to Feb&nbsp;16, 2027; a reverse split, if used, must be completed ten business days before. If compliance is not regained, the 8-K says the company may be eligible for a further 180 days if it meets the market-value requirement and the other initial listing standards for the Nasdaq Capital Market, apart from the minimum bid price. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026092657/ea0303066-8k_estrella.htm" target="_blank" rel="noopener">8-K, Aug&nbsp;21, 2026</a></span></li>
+            <li><span class="nq-r">Rule 5550(b)(2)<small>$35M market value</small></span><span class="nq-d">Notice Sep&nbsp;1, 2026</span><span class="nq-s">Market value of listed securities below $35M for 30 business days; the company also does not meet the stockholders&rsquo; equity ($2.5M) or net income alternatives. Compliance period to Mar&nbsp;1, 2027. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026098123/ea030490301-8k_estrella.htm" target="_blank" rel="noopener">8-K, Sep&nbsp;8, 2026</a></span></li>
+          </ul>
+          <p>Each letter says it has no immediate effect on trading. If compliance is not regained, Nasdaq will notify the company that the stock is subject to delisting, which the company may appeal to a hearings panel. Before these, the 10-K records a notice of Nov&nbsp;19, 2024 (minimum bid price and the $2.5M stockholders&rsquo; equity requirement, regained Dec&nbsp;11, 2024), one in April 2025 (minimum bid price) and one in August 2025 (market value of listed securities), the last two regained in September 2025. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 1A</a></p>
+        </div>
+      </li>
+      <li class="dis-i">
+        <span class="dis-n" aria-hidden="true">04</span>
+        <div class="dis-b">
+          <h3>Raising money will dilute existing holders</h3>
+          <p>At Jun&nbsp;30, 2026 the company had 43,034,228 shares outstanding and 13,409,928 shares of potential common stock: public warrants for 2,214,993 at $11.50, common warrants for 7,594,935 at $1.39 and 3,600,000 options. A further 463,636 true-up shares were issued on Jul&nbsp;1, 2026; the 2025 purchase agreements require additional shares if the stock price on the 12-month anniversary of each closing is below $1.50, up to 735,857 in all, which leaves up to 272,221 more (calculated). The 10-Q says the public warrants are unlikely to be exercised while the share price ($0.722 on Aug&nbsp;10, 2026) is far below their $11.50 exercise price. Any new equity financing would add to the share count. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, Note 2</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, Note 7</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, MD&amp;A</a></p>
+        </div>
+      </li>
+      <li class="dis-i">
+        <span class="dis-n" aria-hidden="true">05</span>
+        <div class="dis-b">
+          <h3>The clinical evidence is early and small</h3>
+          <p>The company has no approved product and no revenue. Its Phase I data cover nine patients; the 10-K warns that interim, topline and preliminary data may change as more data becomes available, that clinical trials involve uncertain outcomes, and that regulatory approval is lengthy and unpredictable. EB104 and EB201 are not yet in the clinic, and the 10-K gives no timetable for the solid-tumor concept. The 10-K&rsquo;s anticipated completion of the Phase II portion in the first half of 2027 is a forward-looking statement; the 10-K does not tie that date to funding, and item 01 sets out management&rsquo;s funding conclusion. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 1</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 1A</a></p>
+        </div>
+      </li>
+      <li class="dis-i">
+        <span class="dis-n" aria-hidden="true">06</span>
+        <div class="dis-b">
+          <h3>Material weaknesses in internal control</h3>
+          <p>The 10-K concludes that internal control over financial reporting was not effective at Dec&nbsp;31, 2025 because of a lack of qualified full-time personnel with appropriate accounting knowledge and experience to address complex U.S. GAAP issues, and the 10-Q concludes that disclosure controls and procedures were not effective at Jun&nbsp;30, 2026 because of the material weakness; the 10-K adds that if it is not remediated the reliability of the financial statements could be affected. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 9A</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">10-Q, Item 4</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">10-K, Item 1A</a></p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 08 THE RECORD (tint): press/news + investor alerts. Each row is a filing; furnished press releases appear only as the 8-Ks that carry them. ============ -->
+<section id="record" class="sec-tint ed" aria-labelledby="rec-h">
+  <div class="wrap ed-grid">
+    <header class="ed-head reveal">
+      <p class="eyebrow"><svg class="mk motif-mark" aria-hidden="true" focusable="false"><use href="#e-star"/></svg>The record</p>
+      <h2 id="rec-h">The filings behind this page</h2>
+      <p class="ed-note">A selection of the filings, newest first; each row opens the filing on SEC EDGAR. The company&rsquo;s investor page lists the same filings and offers email alerts; this page does not replace either. <a class="src-l" href="https://www.estrellabio.com/investors" target="_blank" rel="noopener">Official investor page</a></p>
+    </header>
+    <ul class="rec reveal" style="--d:.05s">
+      <li><span class="rec-d">Sep&nbsp;8, 2026</span><span class="rec-f">8-K</span><span class="rec-t">Nasdaq market-value notice</span><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026098123/ea030490301-8k_estrella.htm" target="_blank" rel="noopener">Open filing<span class="sr"> (8-K, Sep&nbsp;8, 2026)</span></a></li>
+      <li><span class="rec-d">Aug&nbsp;21, 2026</span><span class="rec-f">8-K</span><span class="rec-t">Nasdaq bid-price notice</span><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026092657/ea0303066-8k_estrella.htm" target="_blank" rel="noopener">Open filing<span class="sr"> (8-K, Aug&nbsp;21, 2026)</span></a></li>
+      <li><span class="rec-d">Aug&nbsp;13, 2026</span><span class="rec-f">10-Q</span><span class="rec-t">Quarter ended Jun&nbsp;30, 2026</span><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026089215/ea0300821-10q_estrella.htm" target="_blank" rel="noopener">Open filing<span class="sr"> (10-Q, Aug&nbsp;13, 2026)</span></a></li>
+      <li><span class="rec-d">Jun&nbsp;30, 2026</span><span class="rec-f">8-K</span><span class="rec-t">Annual meeting results</span><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026073847/ea029661701-8k_estrella.htm" target="_blank" rel="noopener">Open filing<span class="sr"> (8-K, Jun&nbsp;30, 2026)</span></a></li>
+      <li><span class="rec-d">May&nbsp;27, 2026</span><span class="rec-f">DEF 14A</span><span class="rec-t">Proxy statement, Combined 2025/2026 Annual Meeting</span><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000114036126023012/ny20074256x1_def14a.htm" target="_blank" rel="noopener">Open filing<span class="sr"> (DEF 14A, May&nbsp;27, 2026)</span></a></li>
+      <li><span class="rec-d">May&nbsp;18, 2026</span><span class="rec-f">10-Q</span><span class="rec-t">Quarter ended Mar&nbsp;31, 2026</span><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026058063/ea0288520-10q_estrella.htm" target="_blank" rel="noopener">Open filing<span class="sr"> (10-Q, May&nbsp;18, 2026)</span></a></li>
+      <li><span class="rec-d">Apr&nbsp;30, 2026</span><span class="rec-f">10-K/A</span><span class="rec-t">Amendment No. 1 to the annual report: Part III (directors, executive compensation, ownership, related transactions)</span><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026050433/ea0288591-10ka1_estrella.htm" target="_blank" rel="noopener">Open filing<span class="sr"> (10-K/A, Apr&nbsp;30, 2026)</span></a></li>
+      <li><span class="rec-d">Mar&nbsp;18, 2026</span><span class="rec-f">10-K</span><span class="rec-t">Annual report for the year ended Dec&nbsp;31, 2025</span><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026029357/ea0276230-10k_estrella.htm" target="_blank" rel="noopener">Open filing<span class="sr"> (10-K, Mar&nbsp;18, 2026)</span></a></li>
+      <li><span class="rec-d">Jan&nbsp;13, 2026</span><span class="rec-f">8-K</span><span class="rec-t">Nasdaq annual-meeting notice</span><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026003998/ea027282201-8k_estrellaimmu.htm" target="_blank" rel="noopener">Open filing<span class="sr"> (8-K, Jan&nbsp;13, 2026)</span></a></li>
+      <li><span class="rec-d">Jan&nbsp;6, 2026</span><span class="rec-f">8-K</span><span class="rec-t">Registered direct offering and private placement</span><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390026001777/ea0271975-8k_estrella.htm" target="_blank" rel="noopener">Open filing<span class="sr"> (8-K, Jan&nbsp;6, 2026)</span></a></li>
+      <li><span class="rec-d">Dec&nbsp;4, 2025</span><span class="rec-f">8-K</span><span class="rec-t">Press release: STARLIGHT-1 advances to Phase II after the DSMB recommendation (furnished)</span><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390025118097/ea0268496-8k_estrella.htm" target="_blank" rel="noopener">Open filing<span class="sr"> (8-K, Dec&nbsp;4, 2025)</span></a></li>
+      <li><span class="rec-d">Nov&nbsp;6, 2025</span><span class="rec-f">8-K</span><span class="rec-t">Press release: second Phase I dose cohort completed (furnished)</span><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/1844417/000121390025107249/ea0264099-8k_estrella.htm" target="_blank" rel="noopener">Open filing<span class="sr"> (8-K, Nov&nbsp;6, 2025)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 09 CONTACT IR (white): the official investor page, EDGAR; no invented address, phone or email. ============ -->
+<section id="contact" class="sec-white ed" aria-labelledby="con-h">
+  <div class="wrap ed-grid">
+    <header class="ed-head reveal">
+      <p class="eyebrow"><svg class="mk motif-mark" aria-hidden="true" focusable="false"><use href="#e-star"/></svg>Contact investor relations</p>
+      <h2 id="con-h">Go to the source</h2>
+      <p class="ed-note">This is an independent design concept. Questions about the company belong with the company.</p>
+    </header>
+    <div class="contact-grid reveal" style="--d:.05s">
+      <div class="contact-col">
+        <h3>The company&rsquo;s investor page</h3>
+        <p>Estrella&rsquo;s own investor page carries SEC filings, stock information, FAQs, email alerts and an investor contact section.</p>
+        <p><a class="btn btn-primary" href="https://www.estrellabio.com/investors" target="_blank" rel="noopener">Open the investor page <span class="arw" aria-hidden="true">&nearr;</span></a></p>
+      </div>
+      <div class="contact-col">
+        <h3>The SEC&rsquo;s record</h3>
+        <p>Every figure on this page can be checked in the company&rsquo;s filings on EDGAR.</p>
+        <p><a class="btn btn-ghost" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0001844417&amp;type=&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">Open the EDGAR filing list <span class="arw" aria-hidden="true">&nearr;</span></a></p>
+      </div>
+      <div class="contact-col">
+        <h3>The company</h3>
+        <p>Estrella Immunopharma, Inc.<br>Emeryville, California<br>Nasdaq: ESLA</p>
+        <p><a class="src-l" href="https://www.estrellabio.com/" target="_blank" rel="noopener">estrellabio.com</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <a class="footer-logo" href="#hero" aria-label="Estrella Immunopharma, back to the top"><img src="img/logo-estrella.png" alt="Estrella Immunopharma" width="262" height="123"></a>
+      <ul class="footer-links">
+        <li><a href="https://www.estrellabio.com/investors" target="_blank" rel="noopener">Official investor page</a></li>
+        <li><a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0001844417&amp;type=&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC filings (EDGAR)</a></li>
+        <li><a href="https://www.estrellabio.com/" target="_blank" rel="noopener">estrellabio.com</a></li>
+        <li><a href="#disclosures">Disclosures</a></li>
+        <li><a href="#record">The record</a></li>
+      </ul>
+    </div>
+    <p class="fls"><b>Sources and method:</b> Figures come from the company&rsquo;s annual report on Form 10-K for the year ended December 31, 2025 (filed March 18, 2026), its quarterly report on Form 10-Q for the quarter ended June 30, 2026 (filed August 13, 2026) its Form 10-K/A, its Forms 8-K and its proxy statement through September 8, 2026, each linked beside the item. Financial tables are in US dollars as filed. Market statistics are the company&rsquo;s own statements in its 10-K, attributed where shown. The logo is the company&rsquo;s own, from estrellabio.com; the schematics are original drawings after the 10-K&rsquo;s descriptions and show no measured data. This page shows no live share quote.</p>
+    <p class="fls"><b>About this page:</b> This is an independent design concept and is not the official Estrella Immunopharma investor relations website. It is not affiliated with, endorsed by, or maintained by Estrella Immunopharma, Inc. Figures were assembled from public materials at a point in time and may be outdated; verify every figure against the company's official SEC filings. For official information, visit <a href="https://www.estrellabio.com/investors">estrellabio.com/investors</a>.</p>
+    <p class="fls"><b>Forward-Looking Statements:</b> This website contains forward-looking statements within the meaning of the Private Securities Litigation Reform Act of 1995, including statements regarding the company's ability to continue as a going concern and to raise the additional capital it says it needs, the dilution that would follow, its dependence on Eureka Therapeutics, its parent and controlling stockholder, as licensor, manufacturer, trial services provider and creditor, the outcome and timing of the STARLIGHT-1 trial and of any later trials, regulatory approval, the continued listing of its common stock on Nasdaq, competition from other cell therapies, and the protection of its intellectual property. These statements involve known and unknown risks, uncertainties, and other factors that may cause actual results to differ materially from those expressed or implied. We undertake no obligation to update any forward-looking statements except as required by law. See the company's SEC filings, including its most recent 10-K and 10-Q, for a full discussion of risk factors.</p>
+    <p class="market-note">Market data, where shown, is delayed at least 15 minutes and provided for this concept only. Real-time quotes and official figures are available through the company's investor relations site and SEC filings. This concept page shows no live or delayed share quote; the only share price it cites is the one stated in the company's 10-Q, with its date.</p>
+  </div>
+</footer>
+
+<script>
+/* mediaconsole motion: inlined by scaffold.mjs at the end of body, identical on every page; never edit it.
+   Sets html.js, runs the ONE reveal observer (fires the mc:reveal hook), scroll-spy, hamburger aria, and the
+   #hero-motif .paused toggle (off-screen, hidden tab, [data-motif-toggle]). Null-guarded: a failure reveals everything. */
+(function(){
+  var d=document,root=d.documentElement;
+  root.classList.add('js');
+  var reduce=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var hasIO='IntersectionObserver' in window;
+  function fire(el,name,detail){
+    var ev;
+    try{ev=new CustomEvent(name,{bubbles:true,detail:detail})}
+    catch(x){ev=d.createEvent('CustomEvent');ev.initCustomEvent(name,true,false,detail)}
+    el.dispatchEvent(ev);
+  }
+  /* mc:reveal fires ONCE per .reveal element, bubbling, as .in lands; detail.reduced is true under reduced motion.
+     Components hook here (counters.js) instead of adding a second observer. */
+  function show(el){
+    if(el.classList.contains('in'))return;
+    el.classList.add('in');
+    fire(el,'mc:reveal',{reduced:reduce});
+  }
+  try{
+    var els=[].slice.call(d.querySelectorAll('.reveal'));
+    if(reduce||!hasIO){els.forEach(show)}
+    else{
+      var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){io.unobserve(e.target);show(e.target)}})},{threshold:.12});
+      els.forEach(function(el){io.observe(el)});
+    }
+  }catch(err){root.classList.remove('js');[].forEach.call(d.querySelectorAll('.reveal'),function(el){el.classList.add('in')})}
+  try{
+    var burger=d.querySelector('.nav-burger'),links=d.getElementById('nav-links'),nav=d.querySelector('.site-nav');
+    if(burger&&links){
+      var setOpen=function(o){links.classList.toggle('open',o);burger.setAttribute('aria-expanded',o?'true':'false')};
+      burger.addEventListener('click',function(){setOpen(!links.classList.contains('open'))});
+      links.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('a'))setOpen(false)});
+      d.addEventListener('keydown',function(e){if((e.key==='Escape'||e.key==='Esc')&&links.classList.contains('open')){setOpen(false);burger.focus()}});
+    }
+    if(nav){var onScroll=function(){nav.classList.toggle('scrolled',window.scrollY>8)};window.addEventListener('scroll',onScroll,{passive:true});onScroll()}
+  }catch(err){}
+  try{
+    var na=[].slice.call(d.querySelectorAll('.nav-links a[href^="#"]:not(.btn)'));
+    if(na.length&&hasIO){
+      var so=new IntersectionObserver(function(en){en.forEach(function(e){
+        if(!e.isIntersecting)return;var id='#'+e.target.id;
+        na.forEach(function(a){var on=a.getAttribute('href')===id;a.classList.toggle('active',on);if(on)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')});
+      })},{rootMargin:'-40% 0px -55% 0px'});
+      na.forEach(function(a){var t=d.getElementById(a.getAttribute('href').slice(1));if(t)so.observe(t)});
+    }
+  }catch(err){}
+  /* hero motif pause: toggles .paused on #hero-motif (off-screen, hidden tab, or the user's [data-motif-toggle]).
+     The class is the whole contract: substrate CSS pauses every CSS animation inside it; JS motifs watch it (wave.js). */
+  try{
+    var motif=d.getElementById('hero-motif');
+    if(motif&&!reduce){
+      var hero=d.getElementById('hero')||motif,hv=true,user=false,tg=[].slice.call(d.querySelectorAll('[data-motif-toggle]'));
+      var sm=function(){var p=user||!hv||d.hidden;motif.classList.toggle('paused',p)};
+      if(hasIO)new IntersectionObserver(function(en){en.forEach(function(e){hv=e.isIntersecting});sm()},{threshold:0}).observe(hero);
+      d.addEventListener('visibilitychange',sm);
+      tg.forEach(function(b){
+        b.setAttribute('aria-pressed','false');
+        b.addEventListener('click',function(){user=!user;tg.forEach(function(t){t.setAttribute('aria-pressed',user?'true':'false')});sm()});
+      });
+    }
+  }catch(err){}
+})();
+</script>
+</body>
+</html>
